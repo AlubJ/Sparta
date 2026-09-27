@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__SpartaEnsureSystem",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__SpartaEnsureSystem",
+  "parent":{
+    "name":"Supplementary",
+    "path":"folders/Sparta/(Backend)/Supplementary.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

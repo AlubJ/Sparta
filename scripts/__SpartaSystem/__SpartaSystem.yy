@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__SpartaSystem",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__SpartaSystem",
+  "parent":{
+    "name":"(Backend)",
+    "path":"folders/Sparta/(Backend).yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSystemStep",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSystemStep",
+  "parent":{
+    "name":"System",
+    "path":"folders/Sparta/System.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

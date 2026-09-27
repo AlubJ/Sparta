@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__SpartaError",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__SpartaError",
+  "parent":{
+    "name":"Debugging",
+    "path":"folders/Sparta/(Backend)/Debugging.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

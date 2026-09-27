@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSystemDraw",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSystemDraw",
+  "parent":{
+    "name":"System",
+    "path":"folders/Sparta/System.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
