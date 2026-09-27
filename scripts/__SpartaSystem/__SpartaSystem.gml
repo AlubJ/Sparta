@@ -23,6 +23,10 @@ function __SpartaSystem()
         vertex_format_add_color();
         __meshFormat = vertex_format_end();
         
+        __primaryInterface = new __SpartaPrimaryInterface();
+        __secondaryInterface = new __SpartaSecondaryInterface();
+        __meshInterface = undefined;
+        
         __SpartaTrace($"Welcome to Sparta by TheSnidr and modified by Alun Jones. This is version {SPARTA_VERSION} {SPARTA_DATE}");
     }
     

@@ -44,7 +44,7 @@ function __SpartaClassSystem(_batchSize) constructor
             
             if (_vertexBatches[$ _particlesPerBatch] != undefined && vertex_buffer_exists(_vertexBatches[$ _particlesPerBatch]))
             {
-                __vertexBatches[_b] = _vertexBatches[$ _particlesPerBatch;
+                __vertexBatches[_b] = _vertexBatches[$ _particlesPerBatch];
             }
             else
             {

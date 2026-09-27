@@ -13,10 +13,12 @@ void main()
 {
 	vec4 baseColor = texture2D(gm_BaseTexture, vUV);
     
-	if (baseColor.a < uParticleAlphaTest)
-    {
-        discard;
-    }
+    gl_FragColor = vec4(1.0);
     
-    gl_FragColor = vColor * baseColor;
+	//if (baseColor.a < uParticleAlphaTest)
+    //{
+    //    discard;
+    //}
+    
+    //gl_FragColor = vColor * baseColor;
 }

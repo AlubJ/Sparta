@@ -1,0 +1,328 @@
+/*
+	CalicoCamera (c) Alun Jones
+	-------------------------------------------------------------------------
+	Script:			CalicoCamera
+	Version:		v1.00
+	Created:		16/09/2025 by Alun Jones
+	Description:	CalicoEngine Camera
+	-------------------------------------------------------------------------
+	History:
+	 - Created 16/09/2025 by Alun Jones
+	
+	To Do:
+	
+	Information:
+		Initialise a new camera, includes a bunch of helper functions to do camera stuff.
+		
+		The camera axis is set up like so:
+		##########################################
+		####                                  ####
+		####  z-axis                          ####
+		####    ^                             ####
+		####    |                             ####
+		####    |   y-axis                    ####
+		####    |  /                          ####
+		####    | /                           ####
+		####    |/                            ####
+		####    +---------------->   x-axis   ####
+		####							      ####
+		##########################################
+		
+		The z-axis is the up axis.
+		The y-axis is the depth axis.
+		The x-axis is the left-right axis.
+*/
+
+function Camera() constructor
+{
+	// Create Camera
+	__camera = camera_create();
+	camera_set_default(__camera);
+	
+	// Raw Position Variables
+	position			= [0, 0, 0];
+	lookAtPosition		= [0, 0, 0];
+	
+	// Smooth Position Variables
+	__smoothPosition		= [0, 0, 0];
+	__smoothLookAtPosition	= [0, 0, 0];
+	
+	// Raw Look Directions
+	yaw = 0;
+	pitch = 0;
+	roll = 0;
+	distance = 8;
+	
+	// Smooth Look Directions
+	__smoothYaw = 0;
+	__smoothPitch = 0;
+	__smoothRoll = 0;
+	__smoothCameraDistance = 8;
+	
+	// Up Vector (It's -1 to compensate drawing to the screen, increasing the z position will go up)
+	__upVector = [0, 0, -1];
+	
+	// Clip Planes
+	__zNear = 0.1;
+	__zFar = 1000;
+	
+	// Aspect and FOV
+	__aspectRatio = window_get_width() / window_get_height();
+	__fov = 70;
+	
+	// Matrices
+	__viewMatrix = matrix_build_lookat(position[0], position[1], position[2], lookAtPosition[0], lookAtPosition[1], lookAtPosition[2], __upVector[0], __upVector[1], __upVector[2]);
+	__projMatrix = matrix_build_projection_perspective_fov(__fov, __aspectRatio, __zNear, __zFar);
+	
+	// Camera Pitch Lock
+	__pitchLock = 60;
+	
+	// Editor
+	__active = false;
+	
+	/// @func submit([clear])
+	/// @desc Submit the camera.
+	static submit = function(_clear = false)
+	{
+		// Draw Clear Alpha
+		draw_clear_alpha(c_black, _clear ? 0 : 1);
+		
+		// Build View and Projection Matrices
+		__viewMatrix = matrix_build_lookat(position[0], position[1], position[2], lookAtPosition[0], lookAtPosition[1], lookAtPosition[2], __upVector[0], __upVector[1], __upVector[2]);
+		__projMatrix = matrix_build_projection_perspective_fov(__fov, __aspectRatio, __zNear, __zFar);
+		
+		// Set Camera Matrices
+		camera_set_view_mat(__camera, __viewMatrix);
+		camera_set_proj_mat(__camera, __projMatrix);
+		
+		// Apply Camera
+		camera_apply(__camera);
+	}
+	
+	/// @func stepFirstPersonDebug
+	static stepFirstPersonDebug = function()
+	{
+		window_mouse_set_locked(true);
+		if (keyboard_check(ord("A")))
+		{
+			position[0] += dsin(yaw - 90) * .2;
+			position[1] += dcos(yaw - 90) * .2;
+		}
+		
+		if (keyboard_check(ord("D")))
+		{
+			position[0] -= dsin(yaw - 90) * .2;
+			position[1] -= dcos(yaw - 90) * .2;
+		}
+		
+		if (keyboard_check(ord("W")))
+		{
+			position[0] += dcos(yaw - 90) * .2;
+			position[1] -= dsin(yaw - 90) * .2;
+		}
+		
+		if (keyboard_check(ord("S")))
+		{
+			position[0] -= dcos(yaw - 90) * .2;
+			position[1] += dsin(yaw - 90) * .2;
+		}
+			
+		if (keyboard_check(vk_space)) position[2] += .1;
+		if (keyboard_check(vk_lshift)) position[2] -= .1;
+			
+		yaw += window_mouse_get_delta_x() * 0.25;
+		pitch += window_mouse_get_delta_y() * 0.25;
+		yaw = wrap_value(yaw, 0, 359);
+		pitch = clamp(pitch, -89.9, 89.9);
+		
+		lookAtPosition[0] = position[0] + dcos(yaw - 90) * dcos(pitch);
+		lookAtPosition[1] = position[1] - dsin(yaw - 90) * dcos(pitch);
+		lookAtPosition[2] = position[2] - dsin(pitch);
+	}
+	
+	static stepFirst = function()
+	{
+		// Apply Positions
+		lookAtPosition[0] = position[0] + dcos(yaw) * dcos(pitch);
+		lookAtPosition[1] = position[1] - dsin(yaw) * dcos(pitch);
+		lookAtPosition[2] = position[2] - dsin(pitch);
+	}
+	
+	/// @func stepThird()
+	/// @desc Step the camera in third person.
+	static stepThird = function()
+	{
+		position[0] = lookAtPosition[0] + distance * dcos(yaw) * dcos(pitch);
+		position[1] = lookAtPosition[1] - distance * dsin(yaw) * dcos(pitch);
+		position[2] = lookAtPosition[2] - distance * dsin(pitch);
+	}
+	
+	#region Editor
+	
+	/// @func stepEditorThird(bounds)
+	/// @desc Step the editors third person camera in defined bounds.
+	/// @arg {Array} bounds The bounds.
+	static stepEditorThird = function(_bounds)
+	{
+		var _cursorX = window_mouse_get_x();
+		var _cursorY = window_mouse_get_y();
+		if (_cursorX > _bounds[0] && _cursorX < _bounds[2] && _cursorY > _bounds[1] && _cursorY < _bounds[3])
+		{
+			if ((device_mouse_check_button_pressed(0, mb_left) || device_mouse_check_button_pressed(0, mb_right)) || device_mouse_check_button(0, mb_middle) && !__active)
+			{
+				__active = true;
+				window_set_cursor(cr_size_all);
+			}
+			
+			if (mouse_wheel_up())
+			{
+				distance -= (distance / 4);
+			}
+			
+			if (mouse_wheel_down())
+			{
+				distance += (distance / 3);
+			}
+		}
+        
+        if (device_mouse_check_button(0, mb_left) && __active)
+		{
+			yaw += window_mouse_get_delta_x() * 0.25;
+			pitch -= window_mouse_get_delta_y() * 0.25;
+			pitch = clamp(pitch, -89.999, 89.999);
+        }
+		
+		if ((device_mouse_check_button_released(0, mb_left) || device_mouse_check_button_released(0, mb_right)) || device_mouse_check_button_released(0, mb_middle) && __active)
+		{
+			__active = false;
+			window_set_cursor(cr_default);
+		}
+		
+		distance = clamp(distance, 1, 20);
+		
+		stepThird();
+	}
+	
+	#endregion
+	
+	#region Getters and Setters
+	
+	/// @func getCamera()
+	/// @desc Return the raw camera.
+	static getCamera = function()
+	{
+		return __camera;
+	}
+	
+	/// @func getPosition()
+	/// @desc Return the raw position.
+	static getPosition = function()
+	{
+		return position;
+	}
+	
+	/// @func setPosition(x, y, z)
+	/// @desc Set the raw position.
+	static setPosition = function(_x, _y, _z)
+	{
+		position[0] = _x;
+		position[1] = _y;
+		position[2] = _z;
+	}
+	
+	/// @func addPosition(x, y, z)
+	/// @desc Add the raw position.
+	static setPosition = function(_x, _y, _z)
+	{
+		position[0] += _x;
+		position[1] += _y;
+		position[2] += _z;
+	}
+	
+	/// @func getLookPosition()
+	/// @desc Return the look position.
+	static getLookPosition = function()
+	{
+		return lookAtPosition;
+	}
+	
+	/// @func setLookPosition(x, y, z)
+	/// @desc Set the look position.
+	static setLookPosition = function(_x, _y, _z)
+	{
+		lookAtPosition[0] = _x;
+		lookAtPosition[1] = _y;
+		lookAtPosition[2] = _z;
+	}
+	
+	/// @func addLookPosition(x, y, z)
+	/// @desc Add the look position.
+	static addLookPosition = function(_x, _y, _z)
+	{
+		lookAtPosition[0] += _x;
+		lookAtPosition[1] += _y;
+		lookAtPosition[2] += _z;
+	}
+	
+	/// @func setYaw(yaw)
+	/// @desc Set the yaw of the camera.
+	/// @arg {Real} yaw
+	static setYaw = function(_yaw)
+	{
+		yaw = _yaw;
+		__smoothYaw = _yaw;
+	}
+	
+	/// @func setPitch(pitch)
+	/// @desc Set the pitch of the camera.
+	/// @arg {Real} pitch
+	static setPitch = function(_pitch)
+	{
+		pitch = clamp(_pitch, -__pitchLock, __pitchLock);
+	}
+	
+	/// @func addYaw(yaw)
+	/// @desc Add the yaw of the camera.
+	/// @arg {Real} yaw
+	static addYaw = function(_yaw, _smooth = 0)
+	{
+		// Update raw yaw value
+		_yaw = clamp(_yaw, -18, 18);
+		__smoothYaw = wrap_value(__smoothYaw + _yaw, 0, 359);
+		
+		// Smooth it
+		if (_smooth > 0)
+		{
+			yaw = lerp_angle(yaw, __smoothYaw, _smooth);
+		}
+		else
+		{
+			yaw = __smoothYaw;
+		}
+		
+		// Wrap again
+		yaw = normalize_angle(yaw);
+	}
+	
+	/// @func addPitch(pitch)
+	/// @desc Add the pitch of the camera.
+	/// @arg {Real} pitch
+	static addPitch = function(_pitch, _smooth = 0)
+	{
+		// Update raw yaw value
+		_pitch = clamp(_pitch, -18, 18);
+		__smoothPitch = clamp(__smoothPitch + _pitch, -__pitchLock, __pitchLock);
+		
+		// Smooth it
+		if (_smooth > 0)
+		{
+			pitch = lerp_angle(pitch, __smoothPitch, _smooth);
+		}
+		else
+		{
+			pitch = __smoothPitch;
+		}
+	}
+	
+	#endregion
+}
