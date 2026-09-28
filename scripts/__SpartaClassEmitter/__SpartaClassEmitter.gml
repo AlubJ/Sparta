@@ -201,26 +201,36 @@ function __SpartaClassEmitter(_particleSystem) constructor
         {
             __Activate();
         }
+        
+        return self;
     }
     
     static SetShape = function(_shape)
     {
         __shape = _shape;
+        
+        return self;
     }
     
     static SetDistribution = function(_distribution)
     {
         __distribution = _distribution;
+        
+        return self;
     }
     
     static SetDynamic = function(_dynamic)
     {
         __dynamic = _dynamic;
+        
+        return self;
     }
     
     static SetSector = function(_sectorAngle)
     {
         __sector = _sector;
+        
+        return self;
     }
     
     #endregion
@@ -240,6 +250,11 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static GetSector = function()
     {
         return __sector;
+    }
+    
+    static GetDynamic = function()
+    {
+        return __dynamic;
     }
     
     #endregion

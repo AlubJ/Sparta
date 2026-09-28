@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaEmitterSetShape",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaEmitterSetShape",
+  "parent":{
+    "name":"Setters",
+    "path":"folders/Sparta/Emitter/Setters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

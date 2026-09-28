@@ -76,12 +76,16 @@ function __SpartaClassType() constructor
         }
         
         __spriteSource = _sprite;
+        
+        return self;
     }
     
     static SetLife = function(_minLife, _maxLife)
     {
         __life[0] = _minLife;
         __life[1] = _maxLife;
+        
+        return self;
     }
     
     static SetSpeed = function(_minStartSpeed, _maxStartSpeed, _acceleration, _jerk)
@@ -100,6 +104,8 @@ function __SpartaClassType() constructor
         __speed[1] = _maxStartSpeed;
         __speed[2] = _acceleration;
         __speed[3] = _jerk;
+        
+        return self;
     }
     
     static SetDirection = function(_xDirection, _yDirection, _zDirection, _angleVariation, _radial)
@@ -118,6 +124,8 @@ function __SpartaClassType() constructor
         __direction[2] = _zDirection;
         __direction[3] = degtorad(_angleVariation);
         __directionRadial = _radial;
+        
+        return self;
     }
     
     static SetGravity = function(_xDirection, _yDirection, _zDirection, _strength)
@@ -131,6 +139,8 @@ function __SpartaClassType() constructor
         __gravity[0] = _xDirection * _length;
         __gravity[1] = _yDirection * _length;
         __gravity[2] = _zDirection * _length;
+        
+        return self;
     }
     
     static SetAngle = function(_minStartAngle, _maxStartAngle, _angleSpeed, _angleAcceleration, _relative)
@@ -140,6 +150,8 @@ function __SpartaClassType() constructor
         __angle[2] = _angleSpeed;
         __angle[3] = _angleAcceleration;
         __angleRelative = _relative;
+        
+        return self;
     }
     
     static SetSize = function(_minStartSize, _maxStartSize, _sizeSpeed, _sizeAcceleration, _minClamp, _maxClamp)
@@ -150,12 +162,16 @@ function __SpartaClassType() constructor
         __size[3] = _sizeAcceleration;
         __sizeClamp[0] = _minClamp;
         __sizeClamp[1] = _maxClamp;
+        
+        return self;
     }
     
     static SetScale = function(_xScale, _yScale)
     {
         __scale[0] = _xScale;
         __scale[1] = _yScale;
+        
+        return self;
     }
     
     static SetBlend = function(_enabled, _source, _destination)
@@ -163,21 +179,29 @@ function __SpartaClassType() constructor
         __blendEnable = _enabled;
         __blendSource = _source;
         __blendDestination = _destination;
+        
+        return self;
     }
     
     static SetZWrite = function(_zWrite)
     {
         __zWrite = _zWrite;
+        
+        return self;
     }
     
     static SetCullMode = function(_cullmode)
     {
         __cullmode = _cullmode;
+        
+        return self;
     }
     
     static SetAlphaTest = function(_testReference)
     {
         __alphaTest = clamp(_testReference / 255, 0, 1);
+        
+        return self;
     }
     
     static SetColor = function(_color1, _alpha1, _color2, _alpha2, _color3, _alpha3, _color4, _alpha4, _choose)
@@ -210,6 +234,8 @@ function __SpartaClassType() constructor
                 __colorType = 0;
             }
         }
+        
+        return self;
     }
     
     static SetChild = function(_particleType, _count)
@@ -226,6 +252,8 @@ function __SpartaClassType() constructor
         
         __childType = _particleType;
         __childCount = _count;
+        
+        return self;
     }
     
     static SetDeath = function(_particleType, _count)
@@ -242,6 +270,8 @@ function __SpartaClassType() constructor
         
         __deathType = _particleType;
         __deathCount = _count;
+        
+        return self;
     }
     
     #endregion
@@ -259,6 +289,8 @@ function __SpartaClassType() constructor
         
         __mesh = __SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch);
         __meshCountPerBatch = _meshCountPerBatch;
+        
+        return self;
     }
     
     static SetMeshAmbientColor = function(_ambientColor)
@@ -266,6 +298,8 @@ function __SpartaClassType() constructor
         __meshAmbientColor[0] = color_get_red(_ambientColor) / 255;
         __meshAmbientColor[1] = color_get_green(_ambientColor) / 255;
         __meshAmbientColor[2] = color_get_blue(_ambientColor) / 255;
+        
+        return self;
     }
     
     static SetMeshLightColor = function(_lightColor)
@@ -273,6 +307,8 @@ function __SpartaClassType() constructor
         __meshLightColor[0] = color_get_red(_lightColor) / 255;
         __meshLightColor[1] = color_get_green(_lightColor) / 255;
         __meshLightColor[2] = color_get_blue(_lightColor) / 255;
+        
+        return self;
     }
     
     static SetMeshLightDirection = function(_xDirection, _yDirection, _zDirection)
@@ -290,6 +326,8 @@ function __SpartaClassType() constructor
         __meshLightDirection[0] = _xDirection;
         __meshLightDirection[1] = _yDirection;
         __meshLightDirection[2] = _zDirection;
+        
+        return self;
     }
     
     static SetMeshRotationAxis = function(_xAxis, _yAxis, _zAxis, _angle)
@@ -308,6 +346,8 @@ function __SpartaClassType() constructor
         __meshRotationAxis[1] = _yAxis;
         __meshRotationAxis[2] = _zAxis;
         __meshRotationAxis[3] = degtorad(_angle);
+        
+        return self;
     }
     
     static Destroy = function()

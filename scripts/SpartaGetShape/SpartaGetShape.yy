@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaGetShape",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaGetShape",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/Emitter/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

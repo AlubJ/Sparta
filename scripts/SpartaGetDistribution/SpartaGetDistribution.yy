@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaGetDistribution",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaGetDistribution",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/Emitter/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
