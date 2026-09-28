@@ -27,7 +27,7 @@
 
 ---
 
-Sparta is a 3D particle system for GameMaker and is a heavily modified version of [sPart by theSnidr](https://github.com/TheSnidr/sPart). It is a GPU based, deterministic particle system where the particles are computed on the GPU.
+Sparta is a 3D particle system for GameMaker and is a heavily modified version of [sPart by theSnidr](https://github.com/TheSnidr/sPart). It is a GPU based particle system where the particles are computed on the GPU via a shader.
 
 ## Why did I make this?
 There are a couple reasons for this. Firstly, I wanted to update the API for my own reasons and add a couple of new features. Secondly, sPart hasn't been updated in a while and I intend to support this library for as long as I can, so rewriting it in a way that makes it easy for me to maintain was important.
