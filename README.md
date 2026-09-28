@@ -1,4 +1,4 @@
-<h1 align="center">Sparta 1.1.0</h1>
+<h1 align="center">Sparta 1.0.0</h1>
 
 <p align="center">GPU based 3D particle system for GameMaker LTS 2026 by theSnidr and modified by <a href="https://alub.dev/" target="_blank">Alun Jones</a>.</p>
 
