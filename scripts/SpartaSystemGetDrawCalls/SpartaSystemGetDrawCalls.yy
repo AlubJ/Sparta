@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemGetGlobal",
+  "%Name":"SpartaSystemGetDrawCalls",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemGetGlobal",
+  "name":"SpartaSystemGetDrawCalls",
   "parent":{
     "name":"Getters",
     "path":"folders/Sparta/System/Getters.yy",

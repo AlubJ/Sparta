@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemGetGlobal",
+  "%Name":"SpartaSystemSetDynamicInterval",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemGetGlobal",
+  "name":"SpartaSystemSetDynamicInterval",
   "parent":{
     "name":"Getters",
     "path":"folders/Sparta/System/Getters.yy",

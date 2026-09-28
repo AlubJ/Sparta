@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemGetGlobal",
+  "%Name":"SpartaSystemGetParticleCount",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemGetGlobal",
+  "name":"SpartaSystemGetParticleCount",
   "parent":{
     "name":"Getters",
     "path":"folders/Sparta/System/Getters.yy",
