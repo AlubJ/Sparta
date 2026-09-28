@@ -20,7 +20,7 @@
 // Emitter distribution
 #macro SPARTA_DISTR_LINEAR ps_distr_linear
 #macro SPARTA_DISTR_GAUSSIAN ps_distr_gaussian
-#macro SPARTA_DISTR_INVGUASSIAN ps_distr_invgaussian
+#macro SPARTA_DISTR_INVGAUSSIAN ps_distr_invgaussian
 
 // Particle type type
 #macro SPARTA_TYPE_SPRITE 0

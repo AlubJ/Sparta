@@ -36,7 +36,7 @@ uniform vec2 uParticleSizeClamp;
 uniform vec4 uParticleAngle;
 uniform vec3 uParticleGravity;
 uniform bool uParticleAngleRelative;
-uniform bool uParticleDirectionRelative;
+uniform bool uParticleDirectionRadial;
 uniform vec4 uParticleColor[4];
 uniform float uParticleColorType;
 uniform vec2 uParticleSpriteOrigin;

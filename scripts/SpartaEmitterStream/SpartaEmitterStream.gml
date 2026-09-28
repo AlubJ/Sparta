@@ -15,7 +15,7 @@ function SpartaEmitterStream(_emitter, _type, _particlesPerStep, _lifespan)
         __SpartaError($"Particle emitter passed in is invalid.");
     }
     
-    if (!__SpartaEnsureEmitter(_type))
+    if (!__SpartaEnsureType(_type))
     {
         __SpartaError($"Particle type passed in is invalid.");
     }

@@ -5,7 +5,7 @@
 /// the shape. This only affects the sphere and cylinder shapes.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-/// @param {Bool} angle
+/// @param {Real} angle
 function SpartaEmitterSetSector(_emitter, _angle)
 {
     if (!__SpartaEnsureEmitter(_emitter))

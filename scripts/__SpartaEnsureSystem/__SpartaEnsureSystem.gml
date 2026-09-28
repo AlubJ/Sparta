@@ -2,7 +2,7 @@
 
 function __SpartaEnsureSystem(_system)
 {
-    if (!is_struct(_system) || _system.__time == undefined)
+    if (!is_instanceof(_emitter, __SpartaClassSystem))
     {
         return false;
     }

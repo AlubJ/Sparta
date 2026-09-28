@@ -21,6 +21,7 @@ function __SpartaTextureCreate(_sprite, _spriteWidth, _spriteHeight, _imageCount
     repeat(_imageCount)
     {
         draw_sprite_stretched(_sprite, _i, _i / _imageCount * _surfaceWidth, 0, _surfaceWidth / _imageCount, _surfaceHeight);
+        _i++;
     }
     
     surface_reset_target();

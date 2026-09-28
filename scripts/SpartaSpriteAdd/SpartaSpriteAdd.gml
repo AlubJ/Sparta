@@ -18,6 +18,9 @@ function SpartaSpriteAdd(_sprite)
             __SpartaError($"Sprite `{_sprite}` does not exist.");
         }
         
-        __SpartaTextureCreate(_sprite, sprite_get_width(_sprite), sprite_get_height(_sprite), sprite_get_number(_sprite));
+        if (_system.__sprites[$ _sprite] != undefined)
+        {
+            _system.__sprites[$ _sprite] = __SpartaTextureCreate(_sprite, sprite_get_width(_sprite), sprite_get_height(_sprite), sprite_get_number(_sprite));
+        }
     }
 }

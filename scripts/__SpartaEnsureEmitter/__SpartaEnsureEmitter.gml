@@ -2,7 +2,7 @@
 
 function __SpartaEnsureEmitter(_emitter)
 {
-    if (!is_struct(_emitter) || _emitter.__shape == undefined)
+    if (!is_instanceof(_emitter, __SpartaClassEmitter))
     {
         return false;
     }

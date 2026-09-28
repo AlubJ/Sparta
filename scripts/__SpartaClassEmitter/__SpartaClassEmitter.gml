@@ -1,3 +1,4 @@
+// Feather disable all
 
 function __SpartaClassEmitter(_particleSystem) constructor
 {
@@ -54,9 +55,14 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     static Stream = function(_particleType, _particlesPerStep, _lifeSpan)
     {
+        if (!__SpartaEnsureType(_particleType))
+        {
+            __SpartaError($"Particle type passed in is invalid.");
+        }
+        
         if (__dynamic)
         {
-            if (Retire(true))
+            if (Retire())
             {
                 __creationTime = __particleSystem.__time;
                 __startMatrix = __endMatrix;
@@ -73,9 +79,14 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     static Burst = function(_particleType, _count)
     {
+        if (!__SpartaEnsureType(_particleType))
+        {
+            __SpartaError($"Particle type passed in is invalid.");
+        }
+        
         if (__dynamic)
         {
-            Retire(true);
+            Retire();
         }
         
         __startMatrix = __endMatrix;
@@ -124,8 +135,6 @@ function __SpartaClassEmitter(_particleSystem) constructor
         _retired.__sector = __sector;
         _retired.__shape = __shape;
         _retired.__distribution = __distribution;
-        _retired.__mesh = __mesh;
-        _retired.__meshParticleCount = __meshParticleCount;
         _retired.__parent = self;
         _retired.__particleType = __particleType;
         _retired.__particlesPerStep = __particlesPerStep;

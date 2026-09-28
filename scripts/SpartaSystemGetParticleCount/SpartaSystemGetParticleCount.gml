@@ -11,5 +11,5 @@ function SpartaSystemGetParticleCount(_system)
         __SpartaError($"Particle system passed in is invalid.");
     }
     
-    return _system.GetParticalCount();
+    return _system.GetParticleCount();
 }

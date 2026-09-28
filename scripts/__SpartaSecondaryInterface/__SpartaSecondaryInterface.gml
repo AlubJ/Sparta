@@ -4,7 +4,7 @@ function __SpartaSecondaryInterface() constructor
 {
     __shader = __SecondaryShader;
     
-    _uniforms = {
+    __uniforms = {
         uBatchIndex: shader_get_uniform(__shader, "uBatchIndex"),
         uParticleCount: shader_get_uniform(__shader, "uParticleCount"),
         
@@ -125,6 +125,8 @@ function __SpartaSecondaryInterface() constructor
         {
             shader_set_uniform_f(_uniforms.uBatchIndex, _i * _batchSize);
             vertex_submit(_vertexBuffer, pr_trianglelist, _texture);
+            
+            _i++;
         }
         
         _particleSystem.__particleCount += _particleCount;

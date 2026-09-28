@@ -35,20 +35,22 @@ function __SpartaClassSystem(_batchSize) constructor
         var _batchCount = array_length(__batchSize);
         __vertexBatches = array_create(_batchCount);
         
-        var _b = 0;
+        var _i = 0;
         repeat(_batchCount)
         {
-            var _particlesPerBatch = __batchSize[_b];
+            var _particlesPerBatch = __batchSize[_i];
             
             if (_vertexBatches[$ _particlesPerBatch] != undefined && vertex_buffer_exists(_vertexBatches[$ _particlesPerBatch]))
             {
-                __vertexBatches[_b] = _vertexBatches[$ _particlesPerBatch];
+                __vertexBatches[_i] = _vertexBatches[$ _particlesPerBatch];
             }
             else
             {
                 var _batchBuffer = __SpartaBatchCreate(_particlesPerBatch);
-                __vertexBatches[_b] = _batchBuffer;
+                __vertexBatches[_i] = _batchBuffer;
             }
+            
+            _i++;
         }
     }
     
@@ -67,7 +69,7 @@ function __SpartaClassSystem(_batchSize) constructor
         return __drawCalls;
     }
     
-    static GetParticalCount = function ()
+    static GetParticleCount = function ()
     {
         return __particleCount;
     }
@@ -76,10 +78,10 @@ function __SpartaClassSystem(_batchSize) constructor
     {
         var _emitterCount = array_length(__activeEmitters);
         
-        var _i = 0;
-        repeat (_emitterCount)
+        var _i = _emitterCount;
+        repeat (--_i >= 0)
         {
-            var _emitter = __activeEmitters[_i++];
+            var _emitter = __activeEmitters[_i];
             
             if (_emitter.__type == SPARTA_EMITTER_STREAM && __time >= _emitter.__creationTime + _emitter.__lifeSpan)
             {

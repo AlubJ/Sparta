@@ -2,7 +2,7 @@
 
 function __SpartaEnsureType(_type)
 {
-    if (!is_struct(_type) || _type.__type == undefined)
+    if (!is_instanceof(_emitter, __SpartaClassType))
     {
         return false;
     }
