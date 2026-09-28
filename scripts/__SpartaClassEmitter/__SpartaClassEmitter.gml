@@ -79,7 +79,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
             __startMatrix = _matrix;
         }
         
-        __endMatrix = __startMatrix;
+        __endMatrix = _matrix;
         
         if (__particleType == undefined)
         {
@@ -170,6 +170,11 @@ function __SpartaClassEmitter(_particleSystem) constructor
             return true;
         }
         
+        if (!__SpartaEnsureType(__particleType))
+        {
+            return false;
+        }
+        
         if (__type != SPARTA_EMITTER_STREAM)
         {
             return true;
@@ -189,7 +194,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         _retired.__distribution = __distribution;
         _retired.__particleType = __particleType;
         _retired.__particlesPerStep = __particlesPerStep;
-        _retired.__lifeSpan = min(__lifeSpan, __particleSystem.__time + __particleType.__life[1]);
+        _retired.__lifeSpan = min(__lifeSpan, __particleSystem.__time - __creationTime);
         _retired.__creationTime = __creationTime;
         _retired.__deathTime = __creationTime + _retired.__lifeSpan + __particleType.__life[1];
         array_copy(_retired.__startMatrix, 0, __startMatrix, 0, 16);

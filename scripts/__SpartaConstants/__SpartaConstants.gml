@@ -23,7 +23,8 @@
 #macro SPARTA_DISTR_INVGAUSSIAN ps_distr_invgaussian
 
 // Particle type type
-#macro SPARTA_TYPE_SPRITE 0
-#macro SPARTA_TYPE_MESH 1
+#macro SPARTA_TYPE_NONE 0
+#macro SPARTA_TYPE_SPRITE 1
+#macro SPARTA_TYPE_MESH 2
 
 #macro SPARTA_MAX_BURST_COUNT 99999

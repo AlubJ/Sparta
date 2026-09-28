@@ -5,7 +5,7 @@ function __SpartaClassType() constructor
     static _sprites = __SpartaSystem().__sprites;
     static _meshes = __SpartaSystem().__meshes;
     
-    __type = SPARTA_TYPE_SPRITE;
+    __type = SPARTA_TYPE_NONE;
     
     __sprite = undefined;
     __spriteSource = undefined;
@@ -77,6 +77,8 @@ function __SpartaClassType() constructor
         }
         
         __spriteSource = _sprite;
+        
+        __type = SPARTA_TYPE_SPRITE;
         
         return self;
     }
@@ -281,7 +283,7 @@ function __SpartaClassType() constructor
     
     static SetMesh = function(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255)
     {
-        Destroy();
+        __FreeMesh();
         
         __type = SPARTA_TYPE_MESH;
         
@@ -289,6 +291,39 @@ function __SpartaClassType() constructor
         __meshCountPerBatch = _meshCountPerBatch;
         
         array_push(_meshes, __mesh);
+        
+        return self;
+    }
+    
+    static SetMeshTexture = function(_sprite)
+    {
+        if (!sprite_exists(_sprite))
+        {
+            __SpartaError($"Sprite `{_sprite}` does not exist.");
+        }
+        
+        var _spriteWidth = sprite_get_width(_sprite);
+        var _spriteHeight = sprite_get_height(_sprite);
+        var _imageCount = 0;
+        
+        __spriteSettings[0] = 0;
+        __spriteSettings[1] = false;
+        __spriteSettings[2] = _imageCount;
+        
+        __spriteOrigin[0] = -sprite_get_xoffset(_sprite) / _spriteWidth;
+        __spriteOrigin[1] = -sprite_get_yoffset(_sprite) / _spriteHeight;
+        
+        if (_sprites[$ _sprite] != undefined)
+        {
+            __sprite = _sprites[$ _sprite];
+        }
+        else
+        {
+            __sprite = __SpartaTextureCreate(_sprite, _spriteWidth, _spriteHeight, _imageCount);
+            _sprites[$ _sprite] = __sprite;
+        }
+        
+        __spriteSource = _sprite;
         
         return self;
     }
@@ -350,20 +385,144 @@ function __SpartaClassType() constructor
         return self;
     }
     
-    static Destroy = function()
+    #endregion
+    
+    #region Getters
+
+    static GetType = function()
     {
-        if (__mesh != undefined && vertex_buffer_exists(__mesh))
-        {
-            var _index = array_get_index(_meshes, __mesh);
-            if (_index != -1)
-            {
-                array_delete(_meshes, _index, 1);
-            }
-            
-            vertex_delete_buffer(__mesh);
-        }
-        
-        __type = SPARTA_TYPE_SPRITE;
+        return __type;
+    }
+    
+    static GetSprite = function()
+    {
+        return __spriteSource;
+    }
+    
+    static GetLife = function()
+    {
+        return variable_clone(__life);
+    }
+    
+    static GetSpeed = function()
+    {
+        return variable_clone(__speed);
+    }
+    
+    static GetDirection = function()
+    {
+        return variable_clone(__direction);
+    }
+    
+    static GetDirectionRadial = function()
+    {
+        return __directionRadial;
+    }
+    
+    static GetGravity = function()
+    {
+        return variable_clone(__gravity);
+    }
+    
+    static GetAngle = function()
+    {
+        return variable_clone(__angle);
+    }
+    
+    static GetAngleRelative = function()
+    {
+        return __angleRelative;
+    }
+    
+    static GetSize = function()
+    {
+        return variable_clone(__size);
+    }
+    
+    static GetSizeClamp = function()
+    {
+        return variable_clone(__sizeClamp);
+    }
+    
+    static GetScale = function()
+    {
+        return variable_clone(__scale);
+    }
+    
+    static GetColor = function()
+    {
+        return variable_clone(__color);
+    }
+    
+    static GetColorType = function()
+    {
+        return __colorType;
+    }
+    
+    static GetBlend = function()
+    {
+        return {
+            enabled: __blendEnable,
+            source: __blendSource,
+            destination:
+            __blendDestination
+        };
+    }
+    
+    static GetAlphaTest = function()
+    {
+        return __alphaTest;
+    }
+    
+    static GetZWrite = function()
+    {
+        return __zWrite;
+    }
+    
+    static GetCullMode = function()
+    {
+        return __cullmode;
+    }
+    
+    static GetChild = function()
+    {
+        return {
+            type: __childType,
+            count: __childCount
+        };
+    }
+    
+    static GetDeath = function()
+    {
+        return {
+            type: __deathType,
+            count: __deathCount
+        };
+    }
+    
+    static GetMesh = function()
+    {
+        return __mesh;
+    }
+    
+    static GetMeshRotationAxis = function()
+    {
+        return variable_clone(__meshRotationAxis);
+    }
+    
+    static GetMeshLightDirection = function()
+    {
+        return variable_clone(__meshLightDirection);
+    }
+    
+    static GetMeshLightColor = function()
+    {
+        return variable_clone(__meshLightColor);
+    }
+    
+    static GetMeshAmbientColor = function()
+    {
+        return variable_clone(__meshAmbientColor);
     }
     
     #endregion
@@ -426,6 +585,37 @@ function __SpartaClassType() constructor
         {
             __SpartaError($"Error deserializing type struct.");
         }
+    }
+    
+    #endregion
+    
+    #region Other
+    
+    static __FreeMesh = function()
+    {
+        if (__mesh != undefined && vertex_buffer_exists(__mesh))
+        {
+            var _index = array_get_index(_meshes, __mesh);
+            if (_index != -1)
+            {
+                array_delete(_meshes, _index, 1);
+            }
+            
+            vertex_delete_buffer(__mesh);
+        }
+    }
+    
+    static Destroy = function()
+    {
+        __FreeMesh();
+        
+        __childType = undefined;
+        __deathType = undefined;
+        
+        __childCount = 0;
+        __deathCount = 0;
+        
+        __type = SPARTA_TYPE_NONE;
     }
     
     #endregion

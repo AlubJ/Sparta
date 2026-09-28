@@ -101,30 +101,38 @@ function __SpartaClassSystem(_batchSize) constructor
                 var _emitter = __activeEmitters[_i];
                 var _parentType = _emitter.__particleType;
                 
-                if (_parentType.__childType != undefined)
+                if (_parentType.__childType != undefined && _parentType.__childType.__type != SPARTA_TYPE_SPRITE)
                 {
                     var _childType = _parentType.__childType;
                     _secondaryInterface.__SetTypeUniforms(_childType, _parentType, true);
                     var _particlesPerParent = ceil(_parentType.__childCount * min(_parentType.__life[1], _childType.__life[1]));
                     
-                    var _parentParticleCount = min(_parentType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
+                    var _parentParticleCount = min(_childType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
                     var _particleCount = ceil(_particlesPerParent * _parentParticleCount);
                     
                     _secondaryInterface.__SetEmitterUniforms(_emitter);
                     _secondaryInterface.__Submit(_childType, _emitter.__particleSystem, _particleCount);
                 }
+                else
+                {
+                    __SpartaWarn($"Attempting to draw a child particle that is not of type sprite.");
+                }
                 
-                if (_parentType.__deathType != undefined)
+                if (_parentType.__deathType != undefined && _parentType.__childType.__type != SPARTA_TYPE_SPRITE)
                 {
                     var _deathType = _parentType.__deathType;
                     _secondaryInterface.__SetTypeUniforms(_deathType, _parentType, false);
                     var _particlesPerParent = _parentType.__deathCount;
                     
-                    var _parentParticleCount = min(_parentType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
+                    var _parentParticleCount = min(_deathType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
                     var _particleCount = ceil(_particlesPerParent * _parentParticleCount);
                     
                     _secondaryInterface.__SetEmitterUniforms(_emitter);
                     _secondaryInterface.__Submit(_deathType, _emitter.__particleSystem, _particleCount);
+                }
+                else
+                {
+                    __SpartaWarn($"Attempting to draw a death particle that is not of type sprite.");
                 }
                 
                 _i++;
@@ -145,7 +153,7 @@ function __SpartaClassSystem(_batchSize) constructor
                     var _particleCount = ceil(min(_particleType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep);
                     _meshInterface.__Submit(_particleType, _emitter.__particleSystem, _particleCount);
                 }
-                else
+                else if (_parentType.__type == SPARTA_TYPE_SPRITE)
                 {
                     _primaryInterface.__SetShader();
                     _primaryInterface.__SetTypeUniforms(_particleType);
@@ -153,6 +161,10 @@ function __SpartaClassSystem(_batchSize) constructor
                 
                     var _particleCount = ceil(min(_particleType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep);
                     _primaryInterface.__Submit(_particleType, _emitter.__particleSystem, _particleCount);
+                }
+                else
+                {
+                    __SpartaWarn($"Attempting to draw a particle without a type.");
                 }
                 
                 _i++;
