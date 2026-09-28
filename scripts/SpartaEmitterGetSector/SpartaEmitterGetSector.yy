@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaGetSector",
+  "%Name":"SpartaEmitterGetSector",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaGetSector",
+  "name":"SpartaEmitterGetSector",
   "parent":{
     "name":"Getters",
     "path":"folders/Sparta/Emitter/Getters.yy",

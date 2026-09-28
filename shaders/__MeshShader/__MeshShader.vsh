@@ -211,7 +211,7 @@ void main()
 		float amount = PtStartTime / uEmitterLifeSpan;
 		mat4 EmMat = uEmitterStartMatrix * (1. - amount) + uEmitterEndMatrix * amount;
 		vec3 EmScale = vec3(length(EmMat[0].xyz), length(EmMat[1].xyz), length(EmMat[2].xyz));
-		vec3 PtDir = (EmMat * vec4((uParticleDirectionRelative ? PtGetDirMat(EmScale * spawnPos) * uParticleDirection.xyz : uParticleDirection.xyz) / EmScale, 0.)).xyz;
+		vec3 PtDir = (EmMat * vec4((uParticleDirectionRadial ? PtGetDirMat(EmScale * spawnPos) * uParticleDirection.xyz : uParticleDirection.xyz) / EmScale, 0.)).xyz;
 		vec3 startDir = normalize(PtDeviateVector(vec4(PtDir, uParticleDirection.w)));
 		float startSpeed = PtGetRand(uParticleSpeed.xy);
 		vec3 PtObjSpacePos = (EmMat * vec4(spawnPos, 1.)).xyz + PtGetPosition(PtTimeAlive, startDir, startSpeed, uParticleSpeed, uParticleGravity);

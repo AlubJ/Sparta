@@ -2,7 +2,7 @@
 
 function __SpartaEnsureType(_type)
 {
-    if (!is_instanceof(_emitter, __SpartaClassType))
+    if (!is_instanceof(_type, __SpartaClassType))
     {
         return false;
     }

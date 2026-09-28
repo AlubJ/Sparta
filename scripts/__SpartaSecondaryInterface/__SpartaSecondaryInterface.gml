@@ -87,7 +87,7 @@ function __SpartaSecondaryInterface() constructor
             shader_set_uniform_f_array(_uniforms.uParentDirection, __direction);
             shader_set_uniform_f_array(_uniforms.uParentGravity, __gravity);
             shader_set_uniform_i(_uniforms.uParentDirectionRadial, __directionRadial);
-            shader_set_uniform_i(_uniforms.uParentSpawnCount, _child ? __stepCount : __deathCount);
+            shader_set_uniform_f(_uniforms.uParentSpawnCount, _child ? __childCount : __deathCount);
         }
     }
     

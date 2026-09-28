@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaGetDynamic",
+  "%Name":"SpartaEmitterGetDynamic",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaGetDynamic",
+  "name":"SpartaEmitterGetDynamic",
   "parent":{
     "name":"Getters",
     "path":"folders/Sparta/Emitter/Getters.yy",

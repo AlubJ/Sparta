@@ -90,7 +90,7 @@ function __SpartaClassSystem(_batchSize) constructor
             
             if (_emitter.__type == SPARTA_EMITTER_RETIRED && __time >= _emitter.__deathTime)
             {
-                _emitter.Destroy();
+                _emitter.__Deactivate();
             }
         }
         
@@ -103,7 +103,6 @@ function __SpartaClassSystem(_batchSize) constructor
         __drawCalls = 0;
         
         var _activeEmitterCount = array_length(__activeEmitters);
-        var _emitterCount = array_length(__emitters);
         
         gpu_push_state();
         
@@ -124,7 +123,7 @@ function __SpartaClassSystem(_batchSize) constructor
                     var _particlesPerParent = ceil(_parentType.__childCount * min(_parentType.__life[1], _childType.__life[1]));
                     
                     var _parentParticleCount = min(_parentType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
-                    var _particleCount = ceil(_particlesPerParent + _parentParticleCount);
+                    var _particleCount = ceil(_particlesPerParent * _parentParticleCount);
                     
                     _secondaryInterface.__SetEmitterUniforms(_emitter);
                     _secondaryInterface.__Submit(_childType, _emitter.__particleSystem, _particleCount);
@@ -137,7 +136,7 @@ function __SpartaClassSystem(_batchSize) constructor
                     var _particlesPerParent = _parentType.__deathCount;
                     
                     var _parentParticleCount = min(_parentType.__life[1] + _parentType.__life[1], _emitter.__lifeSpan, __time - _emitter.__creationTime) * _emitter.__particlesPerStep;
-                    var _particleCount = ceil(_particlesPerParent + _parentParticleCount);
+                    var _particleCount = ceil(_particlesPerParent * _parentParticleCount);
                     
                     _secondaryInterface.__SetEmitterUniforms(_emitter);
                     _secondaryInterface.__Submit(_deathType, _emitter.__particleSystem, _particleCount);

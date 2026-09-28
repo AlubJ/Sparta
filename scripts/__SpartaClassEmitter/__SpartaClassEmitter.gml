@@ -20,7 +20,6 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     __dynamic = false;
     
-    __parent = undefined;
     __particleType = undefined;
     __particlesPerStep = 0;
     
@@ -28,29 +27,38 @@ function __SpartaClassEmitter(_particleSystem) constructor
     __creationTime = __particleSystem.__time;
     __deathTime = __creationTime + __lifeSpan;
     
-    array_push(__particleSystem.__emitters, self);
+    __active = false;
+    __activeIndex = -1;
     
     static __Activate = function()
     {
-        if (array_get_index(__particleSystem.__activeEmitters, self) == -1)
+        if (__active)
         {
-            array_push(__particleSystem.__activeEmitters, self);
-        }
-    }
-    
-    static Destroy = function()
-    {
-        var _index = array_get_index(__particleSystem.__activeEmitters, self);
-        if (_index != -1)
-        {
-            array_delete(__particleSystem.__activeEmitters, _index, 1);
+            return;
         }
         
-        var _index = array_get_index(__particleSystem.__emitters, self);
-        if (_index != -1)
+        __active = true;
+        __activeIndex = array_length(__particleSystem.__activeEmitters);
+        array_push(__particleSystem.__activeEmitters, self);
+    }
+    
+    static __Deactivate = function()
+    {
+        if (!__active)
         {
-            array_delete(__particleSystem.__emitters, _index, 1);
+            return;
         }
+        
+        var _last = array_pop(__particleSystem.__activeEmitters);
+        
+        if (_last != self)
+        {
+            __particleSystem.__activeEmitters[__activeIndex] = _last;
+            _last.__activeIndex = __activeIndex;
+        }
+        
+        __active = false;
+        __activeIndex = -1;
     }
     
     static Stream = function(_particleType, _particlesPerStep, _lifeSpan)
@@ -66,7 +74,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
             {
                 __creationTime = __particleSystem.__time;
                 __startMatrix = __endMatrix;
-                __id = irandom(256);
+                __id = random(256 * 256);
             }
         }
         
@@ -135,7 +143,6 @@ function __SpartaClassEmitter(_particleSystem) constructor
         _retired.__sector = __sector;
         _retired.__shape = __shape;
         _retired.__distribution = __distribution;
-        _retired.__parent = self;
         _retired.__particleType = __particleType;
         _retired.__particlesPerStep = __particlesPerStep;
         _retired.__lifeSpan = min(__lifeSpan, __particleSystem.__time + __particleType.__life[1]);
@@ -189,7 +196,9 @@ function __SpartaClassEmitter(_particleSystem) constructor
             _zScale = 0.0001;
         }
         
-        __SpartaMatrixScale(_matrix, _xScale, _yScale, _zScale);
+        array_copy(__startMatrix, 0, _matrix, 0, 16);
+        
+        __SpartaMatrixScale(__startMatrix, _xScale, _yScale, _zScale);
         
         if (__dynamic)
         {
@@ -197,15 +206,11 @@ function __SpartaClassEmitter(_particleSystem) constructor
             {
                 __creationTime = __particleSystem.__time;
                 __startMatrix = __endMatrix;
-                __id = irandom(256);
+                __id = random(256 * 256);
             }
         }
-        else
-        {
-            __startMatrix = _matrix;
-        }
         
-        __endMatrix = _matrix;
+        __endMatrix = __startMatrix;
         
         if (__particleSystem.__time < __deathTime)
         {

@@ -3,6 +3,7 @@
 function __SpartaClassType() constructor
 {
     static _sprites = __SpartaSystem().__sprites;
+    static _meshes = __SpartaSystem().__meshes;
     
     __type = SPARTA_TYPE_SPRITE;
     
@@ -280,15 +281,14 @@ function __SpartaClassType() constructor
     
     static SetMesh = function(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255)
     {
-        __type = SPARTA_TYPE_MESH;
+        Destroy();
         
-        if (__mesh != undefined && vertex_buffer_exists(__mesh))
-        {
-            vertex_delete_buffer(__mesh);
-        }
+        __type = SPARTA_TYPE_MESH;
         
         __mesh = __SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch);
         __meshCountPerBatch = _meshCountPerBatch;
+        
+        array_push(_meshes, __mesh);
         
         return self;
     }
@@ -354,6 +354,12 @@ function __SpartaClassType() constructor
     {
         if (__mesh != undefined && vertex_buffer_exists(__mesh))
         {
+            var _index = array_get_index(_meshes, __mesh);
+            if (_index != -1)
+            {
+                array_delete(_meshes, _index, 1);
+            }
+            
             vertex_delete_buffer(__mesh);
         }
         
@@ -399,7 +405,7 @@ function __SpartaClassType() constructor
             childCount: __childCount,
             deathCount: __deathCount,
             
-            mesh: (vertex_buffer_exists(__mesh) && SPARTA_RUNNING_FROM_IDE) ? __SpartaMeshToBase64(__mesh) : undefined,
+            mesh: (__mesh != undefined && vertex_buffer_exists(__mesh) && SPARTA_RUNNING_FROM_IDE) ? __SpartaMeshToBase64(__mesh) : undefined,
             meshRotationAxis: variable_clone(__meshRotationAxis),
             meshLightDirection: variable_clone(__meshLightDirection),
             meshLightColor: variable_clone(__meshLightColor),

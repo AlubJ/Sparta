@@ -135,7 +135,5 @@ function __SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255
     var _vertexBuffer = vertex_create_buffer_from_buffer(_particleBuffer, _system.__meshFormat);
     buffer_delete(_particleBuffer);
     
-    array_push(_system.__meshes, _vertexBuffer);
-    
     return _vertexBuffer;
 }

@@ -6,24 +6,19 @@ function __SpartaBatchCreate(_particleCount)
     
     with (_system)
     {
-        var _buffer = buffer_create(_particleCount * 24, buffer_fast, 1);
+        var _buffer = buffer_create(_particleCount * 24, buffer_fixed, 1);
         
         var _i = 0;
         repeat (_particleCount)
         {
             for (var _j = 2; _j >= 0; _j--)
             {
-                buffer_write(_buffer, buffer_u8, _i mod 256);
-                buffer_write(_buffer, buffer_u8, (_i div 256) mod 256);
-                buffer_write(_buffer, buffer_u8, _i div (256 * 256));
-                buffer_write(_buffer, buffer_u8, _j);
+                buffer_write(_buffer, buffer_u32, _i | (_j << 24));
             }
+            
             for (var _j = 1; _j < 4; _j++)
             {
-                buffer_write(_buffer, buffer_u8, _i mod 256);
-                buffer_write(_buffer, buffer_u8, (_i div 256) mod 256);
-                buffer_write(_buffer, buffer_u8, _i div (256 * 256));
-                buffer_write(_buffer, buffer_u8, _j);
+                buffer_write(_buffer, buffer_u32, _i | (_j << 24));
             }
             
             _i++;
