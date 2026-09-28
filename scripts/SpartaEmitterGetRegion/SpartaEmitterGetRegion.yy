@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaEmitterDestroy",
+  "%Name":"SpartaEmitterGetRegion",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaEmitterDestroy",
+  "name":"SpartaEmitterGetRegion",
   "parent":{
-    "name":"Emitter",
-    "path":"folders/Sparta/Emitter.yy",
+    "name":"Getters",
+    "path":"folders/Sparta/Emitter/Getters.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -1,15 +1,15 @@
 // Feather disable all
 
 ///
-/// Destroy an emitter.
+/// Get the particle type of an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-function SpartaEmitterDestroy(_emitter)
+function SpartaEmitterGetParticleType(_emitter)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {
         __SpartaError($"Particle emitter passed in is invalid.");
     }
     
-    _emitter.Destroy();
+    return _emitter.GetParticleType();
 }

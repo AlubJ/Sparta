@@ -30,6 +30,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
     __active = false;
     __activeIndex = -1;
     
+    __retired = false;
+    
     static __Activate = function()
     {
         if (__active)
@@ -99,6 +101,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
             __SpartaError($"Particle type passed in is invalid.");
         }
         
+        __retired = false;
+        
         if (__dynamic)
         {
             if (Retire())
@@ -123,6 +127,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
         {
             __SpartaError($"Particle type passed in is invalid.");
         }
+        
+        __retired = false;
         
         if (__dynamic)
         {
@@ -159,6 +165,11 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     static Retire = function(_force = false)
     {
+        if (__retired)
+        {
+            return true;
+        }
+        
         if (__type != SPARTA_EMITTER_STREAM)
         {
             return true;
@@ -201,6 +212,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
         {
             __particleSystem.__activeEmitters[_index] = _retired;
         }
+        
+        __retired = true;
         
         return true;
     }
@@ -317,6 +330,46 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static GetDynamic = function()
     {
         return __dynamic;
+    }
+    
+    static GetRegion = function()
+    {
+        return variable_clone(__endMatrix);
+    }
+    
+    static GetType = function()
+    {
+        return __type;
+    }
+    
+    static GetParticleType = function()
+    {
+        return __particleType;
+    }
+    
+    static GetParticlesPerStep = function()
+    {
+        return __particlesPerStep;
+    }
+    
+    static GetLifeSpan = function()
+    {
+        return __lifeSpan;
+    }
+    
+    static GetAge = function()
+    {
+        return __particleSystem.__time - __creationTime;
+    }
+    
+    static IsActive = function()
+    {
+        return __active;
+    }
+    
+    static IsRetired = function()
+    {
+        return __retired;
     }
     
     #endregion
