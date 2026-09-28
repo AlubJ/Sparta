@@ -29,6 +29,7 @@
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"gm.vbx","CopyToMask":-1,"filePath":"datafiles","name":"gm.vbx","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"suzanne.vbx","CopyToMask":-1,"filePath":"datafiles","name":"suzanne.vbx","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,

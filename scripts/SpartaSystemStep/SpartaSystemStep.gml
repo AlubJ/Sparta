@@ -2,9 +2,9 @@
 
 ///
 /// This function will step the particle system. The time increment parameter
-/// is used to step each particle. Usually, an increment of `1` per frame for
-/// 60 frames-per-second is sufficient, however, you may want to use delta time
-/// if your game has a variable framerate.
+/// is used to step each particle. The time increment value is measured in
+/// seconds, so the usual formula for stepping the system would be `1/fps`
+/// though this can be changed for various reasons.
 ///
 /// @param {Struct.__SpartaClassSystem} system The system to step.
 /// @param {Real} increment The amount of time to increment this frame.

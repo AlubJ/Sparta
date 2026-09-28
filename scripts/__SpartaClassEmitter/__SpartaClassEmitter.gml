@@ -39,13 +39,13 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     static Destroy = function()
     {
-        var _index = array_get_index(__particleSystem.__activeEmitters);
+        var _index = array_get_index(__particleSystem.__activeEmitters, self);
         if (_index != -1)
         {
             array_delete(__particleSystem.__activeEmitters, _index, 1);
         }
         
-        var _index = array_get_index(__particleSystem.__emitters);
+        var _index = array_get_index(__particleSystem.__emitters, self);
         if (_index != -1)
         {
             array_delete(__particleSystem.__emitters, _index, 1);
@@ -83,6 +83,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __id = random(256 * 256);
         __type = SPARTA_EMITTER_STREAM;
         __creationTime = __particleSystem.__time;
+        __particlesPerStep = SPARTA_MAX_BURST_COUNT;
         __lifeSpan = _count / __particlesPerStep;
         __Activate();
     }
@@ -228,7 +229,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     static SetSector = function(_sectorAngle)
     {
-        __sector = _sector;
+        __sector = _sectorAngle;
         
         return self;
     }
