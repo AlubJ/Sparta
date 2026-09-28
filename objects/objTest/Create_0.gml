@@ -22,7 +22,7 @@ part.SetBlend(true, bm_src_alpha, bm_inv_src_alpha);
 part.SetAngle(0, 360, 1, 0, false);
 part.SetAlphaTest(100);
 part.SetZWrite(true);
-part.SetChild(childPart, 1);
+//part.SetChild(childPart, 1);
 //part.SetCullMode(cull_counterclockwise);
 
 vertex_format_begin();
@@ -37,8 +37,10 @@ var _buffer = buffer_load("gm.vbx");
 //part.SetMeshRotationAxis(1, 0, 0, 0);
 
 emitter = new __SpartaClassEmitter(system);
-emitter.SetRegion(matrix_build(0, 0, 5, 0, 0, 0, 1, 1, 1), 10, 10, 1, SPARTA_SHAPE_SPHERE, SPARTA_DISTR_LINEAR);
-emitter.Stream(part, 10, -1);
+emitter.SetRegion(0, 0, 0, 0, 0, 0, 10, 10, 1);
+emitter.SetDynamic(true);
+emitter.SetShape(SPARTA_SHAPE_CUBE);
+emitter.Stream(part, 1000, -1);
 
 vertex_format_begin();
 vertex_format_add_position_3d();

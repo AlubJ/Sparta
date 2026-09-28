@@ -61,6 +61,37 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __activeIndex = -1;
     }
     
+    static __CommitRegion = function(_matrix)
+    {
+        if (__dynamic)
+        {
+            if (Retire(true))
+            {
+                __creationTime = __particleSystem.__time;
+                __startMatrix = __endMatrix;
+                __id = random(256 * 256);
+            }
+        }
+        else
+        {
+            __startMatrix = _matrix;
+        }
+        
+        __endMatrix = __startMatrix;
+        
+        if (__particleType == undefined)
+        {
+            return self;
+        }
+        
+        if (__particleSystem.__time < __deathTime)
+        {
+            __Activate();
+        }
+        
+        return self;
+    }
+    
     static Stream = function(_particleType, _particlesPerStep, _lifeSpan)
     {
         if (!__SpartaEnsureType(_particleType))
@@ -82,6 +113,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __particlesPerStep = _particlesPerStep;
         __lifeSpan = (_lifeSpan > 0 ? _lifeSpan : 9999999);
         __type = SPARTA_EMITTER_STREAM;
+        
         __Activate();
     }
     
@@ -104,6 +136,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __creationTime = __particleSystem.__time;
         __particlesPerStep = SPARTA_MAX_BURST_COUNT;
         __lifeSpan = _count / __particlesPerStep;
+        
         __Activate();
     }
     
@@ -174,50 +207,64 @@ function __SpartaClassEmitter(_particleSystem) constructor
     
     #region Setters
     
-    static SetRegion = function(_matrix, _xScale, _yScale, _zScale)
+    static SetRegionMatrix = function(_matrix, _xScale, _yScale, _zScale)
     {
-        if (!__SpartaMatrixOrthogonalize(_matrix))
+        var _regionMatrix = array_create(16);
+        array_copy(_regionMatrix, 0, _matrix, 0, 16);
+        
+        if (!__SpartaMatrixOrthogonalize(_regionMatrix))
         {
             __SpartaError("Bad matrix passed in to `SetRegion`.");
         }
         
-        if (_xScale == 0)
+        __SpartaMatrixScale(_regionMatrix, __SafeScale(_xScale), __SafeScale(_yScale), __SafeScale(_zScale));
+        
+        return __CommitRegion(_regionMatrix);
+    }
+    
+    static SetRegion = function(_xPosition, _yPosition, _zPosition, _xRotation, _yRotation, _zRotation, _xScale, _yScale, _zScale)
+    {
+        return __CommitRegion(matrix_build(_xPosition, _yPosition, _zPosition, _xRotation, _yRotation, _zRotation, __SafeScale(_xScale), __SafeScale(_yScale), __SafeScale(_zScale)));
+    }
+    
+    static SetRegionPosition = function(_xPosition, _yPosition, _zPosition)
+    {
+        if (__endMatrix[12] == _xPosition && __endMatrix[13] == _yPosition && __endMatrix[14] == _zPosition)
         {
-            _xScale = 0.0001;
+            return self;
         }
         
-        if (_yScale == 0)
-        {
-            _yScale = 0.0001;
-        }
+        var _matrix = array_create(16);
+        array_copy(_matrix, 0, __endMatrix, 0, 16);
         
-        if (_zScale == 0)
-        {
-            _zScale = 0.0001;
-        }
+        _matrix[12] = _xPosition;
+        _matrix[13] = _yPosition;
+        _matrix[14] = _zPosition;
         
-        array_copy(__startMatrix, 0, _matrix, 0, 16);
+        return __CommitRegion(_matrix);
+    }
+    
+    static SetRegionScale = function(_xScale, _yScale, _zScale)
+    {
+        var _matrix = array_create(16);
+        array_copy(_matrix, 0, __endMatrix, 0, 16);
         
-        __SpartaMatrixScale(__startMatrix, _xScale, _yScale, _zScale);
+        __SpartaMatrixSetAxisLength(_matrix, 0, __SafeScale(_xScale));
+        __SpartaMatrixSetAxisLength(_matrix, 4, __SafeScale(_yScale));
+        __SpartaMatrixSetAxisLength(_matrix, 8, __SafeScale(_zScale));
         
-        if (__dynamic)
-        {
-            if (Retire(true))
-            {
-                __creationTime = __particleSystem.__time;
-                __startMatrix = __endMatrix;
-                __id = random(256 * 256);
-            }
-        }
+        return __CommitRegion(_matrix);
+    }
+    
+    static SetRegionRotation = function(_xRotation, _yRotation, _zRotation)
+    {
+        var _matrix = __endMatrix;
         
-        __endMatrix = __startMatrix;
+        var _xScale = point_distance_3d(0, 0, 0, _matrix[0], _matrix[1], _matrix[2]);
+        var _yScale = point_distance_3d(0, 0, 0, _matrix[4], _matrix[5], _matrix[6]);
+        var _zScale = point_distance_3d(0, 0, 0, _matrix[8], _matrix[9], _matrix[10]);
         
-        if (__particleSystem.__time < __deathTime)
-        {
-            __Activate();
-        }
-        
-        return self;
+        return __CommitRegion(matrix_build(_matrix[12], _matrix[13], _matrix[14], _xRotation, _yRotation, _zRotation, _xScale, _yScale, _zScale));
     }
     
     static SetShape = function(_shape)
@@ -318,6 +365,15 @@ function __SpartaClassEmitter(_particleSystem) constructor
         {
             __SpartaError($"Error deserializing emitter struct.");
         }
+    }
+    
+    #endregion
+    
+    #region Helpers
+    
+    static __SafeScale = function(_size)
+    {
+        return _size == 0 ? 0.0001 : _size;
     }
     
     #endregion

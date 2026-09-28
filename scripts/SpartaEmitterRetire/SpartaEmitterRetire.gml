@@ -13,5 +13,5 @@ function SpartaEmitterRetire(_emitter, _force)
         __SpartaError($"Particle emitter passed in is invalid.");
     }
     
-    _emitter.Retire(_force);
+    return _emitter.Retire(_force);
 }
