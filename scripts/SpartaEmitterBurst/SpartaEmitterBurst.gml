@@ -6,7 +6,7 @@
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Struct.__SpartaClassType} type The particle type to emit.
 /// @param {Real} count The amount of particles to emit.
-function SpartaEmitterStream(_emitter, _type, _count)
+function SpartaEmitterBurst(_emitter, _type, _count)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {

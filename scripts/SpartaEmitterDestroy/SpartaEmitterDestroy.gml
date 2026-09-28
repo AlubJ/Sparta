@@ -4,7 +4,7 @@
 /// Destroy an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-function SpartaEmitterRetire(_emitter)
+function SpartaEmitterDestroy(_emitter)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {
