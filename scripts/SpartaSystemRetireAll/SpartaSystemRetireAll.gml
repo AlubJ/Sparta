@@ -5,7 +5,7 @@
 ///
 /// @param {Struct.__SpartaClassSystem} system The system.
 /// @param {Bool} force
-function SpartaSystemStep(_system, _force)
+function SpartaSystemRetireAll(_system, _force)
 {
     if (!__SpartaEnsureSystem(_system))
     {
