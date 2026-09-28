@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemSetDynamicInterval",
+  "%Name":"SpartaSystemSetPause",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemSetDynamicInterval",
+  "name":"SpartaSystemSetPause",
   "parent":{
     "name":"Setters",
     "path":"folders/Sparta/System/Setters.yy",

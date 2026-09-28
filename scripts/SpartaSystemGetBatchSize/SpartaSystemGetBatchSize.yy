@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSystemGetBatchSize",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSystemGetBatchSize",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/System/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

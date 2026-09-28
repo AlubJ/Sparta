@@ -1,2 +1,2 @@
-SpartaSystemStep(system, 1 / 60);
+SpartaSystemStep(SpartaSystemGetGlobal(), 1 / 60);
 camera.stepEditorThird([0, 0, window_get_width(), window_get_height()]);

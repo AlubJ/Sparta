@@ -1,1 +1,1 @@
-draw_text(10, 10, $"{system.__particleCount}\n{system.__drawCalls}");
+draw_text(10, 10, $"{SpartaSystemGetParticleCount(SpartaSystemGetGlobal())}\n{SpartaSystemGetDrawCalls(SpartaSystemGetGlobal())}");

@@ -17,13 +17,13 @@ function __SpartaClassSystem(_batchSize) constructor
         __batchSize = [ _batchSize ];
     }
     
+    __vertexBatches = undefined;
+    
     __time = 0;
     __dynamicInterval = 1;
+    __paused = false;
     
-    __emitters = [  ];
     __activeEmitters = [  ];
-    
-    __vertexBatches = undefined;
     
     __particleCount = 0;
     __drawCalls = 0;
@@ -54,28 +54,13 @@ function __SpartaClassSystem(_batchSize) constructor
         }
     }
     
-    static SetDynamicInterval = function(_interval)
-    {
-        __dynamicInterval = _interval;
-    }
-    
-    static GetDynamicInterval = function()
-    {
-        return __dynamicInterval;
-    }
-    
-    static GetDrawCalls = function ()
-    {
-        return __drawCalls;
-    }
-    
-    static GetParticleCount = function ()
-    {
-        return __particleCount;
-    }
-    
     static Step = function(_timeIncrement)
     {
+        if (__paused)
+        {
+            return;
+        }
+        
         var _emitterCount = array_length(__activeEmitters);
         
         var _i = _emitterCount;
@@ -177,4 +162,73 @@ function __SpartaClassSystem(_batchSize) constructor
         shader_reset();
         gpu_pop_state();
     }
+    
+    static RetireAll = function(_force)
+    {
+        var _i = array_length(__activeEmitters);
+        
+        while (--_i >= 0)
+        {
+            __activeEmitters[_i].Retire(_force);
+        }
+    }
+    
+    #region Getters / Setters
+    
+    static SetDynamicInterval = function(_interval)
+    {
+        __dynamicInterval = _interval;
+    }
+    
+    static GetDynamicInterval = function()
+    {
+        return __dynamicInterval;
+    }
+    
+    static SetBatchSize = function(_batchSize)
+    {
+        __batchSize = [ 256 ];
+        if (is_array(_batchSize))
+        {
+            __batchSize = _batchSize;
+        }
+        else if (is_real(_batchSize))
+        {
+            __batchSize = [ _batchSize ];
+        }
+        
+        __UpdateVertexBuffers();
+    }
+    
+    static GetBatchSize = function()
+    {
+        return variable_clone(__batchSize);
+    }
+    
+    static SetPause = function(_pause)
+    {
+        __paused = _pause;
+    }
+    
+    static GetPause = function()
+    {
+        return __paused;
+    }
+    
+    static GetDrawCalls = function()
+    {
+        return __drawCalls;
+    }
+    
+    static GetParticleCount = function()
+    {
+        return __particleCount;
+    }
+    
+    static GetTime = function()
+    {
+        return __time;
+    }
+    
+    #endregion
 }

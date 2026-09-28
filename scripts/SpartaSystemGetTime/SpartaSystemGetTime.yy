@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSystemGetTime",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSystemGetTime",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/System/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

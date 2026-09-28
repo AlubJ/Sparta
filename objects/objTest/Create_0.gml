@@ -36,7 +36,7 @@ var _buffer = buffer_load("gm.vbx");
 //part.SetMeshLightDirection(1, 1, -1);
 //part.SetMeshRotationAxis(1, 0, 0, 0);
 
-emitter = new __SpartaClassEmitter(system);
+emitter = new __SpartaClassEmitter(SpartaSystemGetGlobal());
 emitter.SetRegion(0, 0, 0, 0, 0, 0, 10, 10, 1);
 emitter.SetDynamic(true);
 emitter.SetShape(SPARTA_SHAPE_CUBE);

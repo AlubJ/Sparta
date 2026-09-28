@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemSetDynamicInterval",
+  "%Name":"SpartaSystemSetBatchSize",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemSetDynamicInterval",
+  "name":"SpartaSystemSetBatchSize",
   "parent":{
     "name":"Setters",
     "path":"folders/Sparta/System/Setters.yy",
