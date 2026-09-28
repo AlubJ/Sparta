@@ -92,7 +92,7 @@ function __SpartaPrimaryInterface() constructor
     static __Submit = function(_type, _particleSystem, _particleCount)
     {
         var _uniforms = __uniforms;
-        var _texture = sprite_get_texture(_type.__sprite, 0);
+        var _texture = sprite_get_texture(_type.__sprite != undefined ? _type.__sprite : __SpartaFallbackTexture, 0);
         
         var _batchIndex = __SpartaGetBatchIndex(_particleSystem, _particleCount);
         var _vertexBuffer = _particleSystem.__vertexBatches[_batchIndex];

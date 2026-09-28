@@ -24,7 +24,7 @@ function __SpartaSystem()
         
         __primaryInterface = new __SpartaPrimaryInterface();
         __secondaryInterface = new __SpartaSecondaryInterface();
-        __meshInterface = undefined;
+        __meshInterface = new __SpartaMeshInterface();
         
         __particleSystem = new __SpartaClassSystem([256, 512, 1024, 2048, 4096, 8192]);
         

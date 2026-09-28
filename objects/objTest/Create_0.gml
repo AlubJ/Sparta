@@ -5,7 +5,6 @@ camera = new Camera();
 system = new __SpartaClassSystem([256]);
 
 part = new __SpartaClassType();
-part.SetSprite(sprLeaf, 0, false);
 
 part.SetLife(60, 100);
 part.SetSize(0.1, 1, 0, 0, 1, 2);
@@ -15,10 +14,23 @@ part.SetScale(0, 0.05);
 part.SetBlend(true, bm_src_alpha, bm_inv_src_alpha);
 part.SetAngle(0, 360, 0.1, 0, false);
 part.SetAlphaTest(100);
+part.SetZWrite(true);
+part.SetCullMode(cull_counterclockwise);
+
+vertex_format_begin();
+vertex_format_add_position_3d();
+vertex_format_add_normal();
+vertex_format_add_texcoord();
+format2 = vertex_format_end();
+
+var _buffer = buffer_load("suzanne.vbx");
+part.SetMesh(_buffer, format2, 255);
+part.SetMeshLightDirection(1, 1, -1);
+part.SetMeshRotationAxis(1, 0, 0, 0);
 
 emitter = new __SpartaClassEmitter(system);
-emitter.SetRegion(matrix_build(0, 0, 5, 0, 0, 0, 1, 1, 1), 5, 5, 1, SPARTA_SHAPE_SPHERE, SPARTA_DISTR_LINEAR);
-emitter.Stream(part, 1, -1);
+emitter.SetRegion(matrix_build(0, 0, 5, 0, 0, 0, 1, 1, 1), 1, 1, 1, SPARTA_SHAPE_SPHERE, SPARTA_DISTR_LINEAR);
+emitter.Stream(part, 40, -1);
 
 vertex_format_begin();
 vertex_format_add_position_3d();

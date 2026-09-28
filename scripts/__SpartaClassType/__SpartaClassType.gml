@@ -76,12 +76,6 @@ function __SpartaClassType() constructor
         }
         
         __spriteSource = _sprite;
-        __type = SPARTA_TYPE_SPRITE;
-        
-        if (__mesh != undefined && vertex_buffer_exists(__mesh))
-        {
-            vertex_delete_buffer(__mesh);
-        }
     }
     
     static SetLife = function(_minLife, _maxLife)
@@ -254,7 +248,7 @@ function __SpartaClassType() constructor
     
     #region Mesh Setters
     
-    static SetMesh = function(_meshBuffer, _vertexFormat)
+    static SetMesh = function(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255)
     {
         __type = SPARTA_TYPE_MESH;
         
@@ -262,6 +256,9 @@ function __SpartaClassType() constructor
         {
             vertex_delete_buffer(__mesh);
         }
+        
+        __mesh = __SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch);
+        __meshCountPerBatch = _meshCountPerBatch;
     }
     
     static SetMeshAmbientColor = function(_ambientColor)

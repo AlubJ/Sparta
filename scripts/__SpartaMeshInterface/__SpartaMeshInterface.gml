@@ -1,10 +1,10 @@
 // Feather disable all
 
-function __SpartaSecondaryInterface() constructor
+function __SpartaMeshInterface() constructor
 {
-    __shader = __SecondaryShader;
+    __shader = __MeshShader;
     
-    _uniforms = {
+    __uniforms = {
         uBatchIndex: shader_get_uniform(__shader, "uBatchIndex"),
         uParticleCount: shader_get_uniform(__shader, "uParticleCount"),
         
@@ -32,15 +32,12 @@ function __SpartaSecondaryInterface() constructor
         uParticleSpriteOrigin: shader_get_uniform(__shader, "uParticleSpriteOrigin"),
         uParticleSpriteSettings: shader_get_uniform(__shader, "uParticleSpriteSettings"),
         
-        uChild: shader_get_uniform(__shader, "uChild"),
-        uParentLife: shader_get_uniform(__shader, "uParentLife"),
-        uParentSpeed: shader_get_uniform(__shader, "uParentSpeed"),
-        uParentDirection: shader_get_uniform(__shader, "uParentDirection"),
-        uParentDirectionRadial: shader_get_uniform(__shader, "uParentDirectionRadial"),
-        uParentGravity: shader_get_uniform(__shader, "uParentGravity"),
-        uParentSpawnCount: shader_get_uniform(__shader, "uParentSpawnCount"),
-        
         uParticleAlphaTest: shader_get_uniform(__shader, "uParticleAlphaTest"),
+        
+        uMeshRotationAxis: shader_get_uniform(__shader, "uMeshRotationAxis"),
+        uMeshLightColor: shader_get_uniform(__shader, "uMeshLightColor"),
+        uMeshLightDirection: shader_get_uniform(__shader, "uMeshLightDirection"),
+        uMeshAmbientColor: shader_get_uniform(__shader, "uMeshAmbientColor"),
     };
     
     static __SetShader = function()
@@ -48,7 +45,7 @@ function __SpartaSecondaryInterface() constructor
         shader_set(__shader);
     }
     
-    static __SetTypeUniforms = function(_type, _parentType, _child)
+    static __SetTypeUniforms = function(_type)
     {
         var _uniforms = __uniforms;
         with (_type)
@@ -77,17 +74,11 @@ function __SpartaSecondaryInterface() constructor
             shader_set_uniform_i(_uniforms.uParticleDirectionRadial, __directionRadial);
             shader_set_uniform_f(_uniforms.uParticleColorType, __colorType);
             shader_set_uniform_f(_uniforms.uParticleAlphaTest, __alphaTest);
-        }
-        
-        with (_parentType)
-        {
-            shader_set_uniform_i(_uniforms.uChild, _child);
-            shader_set_uniform_f_array(_uniforms.uParentLife, __life);
-            shader_set_uniform_f_array(_uniforms.uParentSpeed, __speed);
-            shader_set_uniform_f_array(_uniforms.uParentDirection, __direction);
-            shader_set_uniform_f_array(_uniforms.uParentGravity, __gravity);
-            shader_set_uniform_i(_uniforms.uParentDirectionRadial, __directionRadial);
-            shader_set_uniform_i(_uniforms.uParentSpawnCount, _child ? __stepCount : __deathCount);
+            
+            shader_set_uniform_f_array(_uniforms.uMeshRotationAxis, __meshRotationAxis);
+			shader_set_uniform_f_array(_uniforms.uMeshAmbientColor, __meshAmbientColor);
+			shader_set_uniform_f_array(_uniforms.uMeshLightColor, __meshLightColor);
+			shader_set_uniform_f_array(_uniforms.uMeshLightDirection, __meshLightDirection);
         }
     }
     
@@ -113,9 +104,8 @@ function __SpartaSecondaryInterface() constructor
         var _uniforms = __uniforms;
         var _texture = sprite_get_texture(_type.__sprite != undefined ? _type.__sprite : __SpartaFallbackTexture, 0);
         
-        var _batchIndex = __SpartaGetBatchIndex(_particleSystem, _particleCount);
-        var _vertexBuffer = _particleSystem.__vertexBatches[_batchIndex];
-        var _batchSize = _particleSystem.__batchSize[_batchIndex];
+        var _vertexBuffer = _type.__mesh;
+        var _batchSize = _type.__meshCountPerBatch;
         var _batchCount = ceil(_particleCount / _batchSize);
         
         shader_set_uniform_f(_uniforms.uParticleCount, _batchCount * _batchSize);
@@ -125,6 +115,8 @@ function __SpartaSecondaryInterface() constructor
         {
             shader_set_uniform_f(_uniforms.uBatchIndex, _i * _batchSize);
             vertex_submit(_vertexBuffer, pr_trianglelist, _texture);
+            
+            _i++;
         }
         
         _particleSystem.__particleCount += _particleCount;
