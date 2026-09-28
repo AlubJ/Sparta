@@ -1,19 +1,23 @@
+SpartaSpriteAdd(sprLeaf);
+
 camera = new Camera();
 
 system = new __SpartaClassSystem([256]);
 
 part = new __SpartaClassType();
-part.SetSprite(sprTest, 0, false);
+part.SetSprite(sprLeaf, 0, false);
 
-part.SetDirection(0, 0, 1, 10, false);
-part.SetLife(10, 100);
+part.SetLife(60, 100);
 part.SetSize(0.1, 1, 0, 0, 1, 2);
-part.SetColor(c_white, 0, c_white, 1, c_white, 1, c_white, 0, false);
-part.SetSpeed(0.01, 0.1, 0, false);
-part.SetScale(0, 0.1);
+part.SetColor(c_green, 0, c_green, 1, c_maroon, 1, c_maroon, 0, false);
+part.SetGravity(0, 0, -1, 0.01);
+part.SetScale(0, 0.05);
+part.SetBlend(true, bm_src_alpha, bm_inv_src_alpha);
+part.SetAngle(0, 360, 0.1, 0, false);
+part.SetAlphaTest(100);
 
 emitter = new __SpartaClassEmitter(system);
-emitter.SetRegion(matrix_build(0, 0, 0, 0, 0, 0, 1, 1, 1), 1, 1, 1, SPARTA_SHAPE_SPHERE, SPARTA_DISTR_LINEAR);
+emitter.SetRegion(matrix_build(0, 0, 5, 0, 0, 0, 1, 1, 1), 5, 5, 1, SPARTA_SHAPE_SPHERE, SPARTA_DISTR_LINEAR);
 emitter.Stream(part, 1, -1);
 
 vertex_format_begin();

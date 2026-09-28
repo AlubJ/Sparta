@@ -78,7 +78,7 @@ function __SpartaClassType() constructor
         __spriteSource = _sprite;
         __type = SPARTA_TYPE_SPRITE;
         
-        if (vertex_buffer_exists(__mesh))
+        if (__mesh != undefined && vertex_buffer_exists(__mesh))
         {
             vertex_delete_buffer(__mesh);
         }
@@ -258,7 +258,7 @@ function __SpartaClassType() constructor
     {
         __type = SPARTA_TYPE_MESH;
         
-        if (vertex_buffer_exists(__mesh))
+        if (__mesh != undefined && vertex_buffer_exists(__mesh))
         {
             vertex_delete_buffer(__mesh);
         }
@@ -315,7 +315,7 @@ function __SpartaClassType() constructor
     
     static Destroy = function()
     {
-        if (vertex_buffer_exists(__mesh))
+        if (__mesh != undefined && vertex_buffer_exists(__mesh))
         {
             vertex_delete_buffer(__mesh);
         }
