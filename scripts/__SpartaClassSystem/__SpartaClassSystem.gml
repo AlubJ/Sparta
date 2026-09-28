@@ -1,3 +1,4 @@
+// Feather disable all
 
 function __SpartaClassSystem(_batchSize) constructor
 {
@@ -17,13 +18,10 @@ function __SpartaClassSystem(_batchSize) constructor
     }
     
     __time = 0;
-    __dynamic = false;
     __dynamicInterval = 1;
     
     __emitters = [  ];
     __activeEmitters = [  ];
-    __deathEmitters = [  ];
-    __childEmitters = [  ];
     
     __vertexBatches = undefined;
     
@@ -52,6 +50,26 @@ function __SpartaClassSystem(_batchSize) constructor
                 __vertexBatches[_b] = _batchBuffer;
             }
         }
+    }
+    
+    static SetDynamicInterval = function(_interval)
+    {
+        __dynamicInterval = _interval;
+    }
+    
+    static GetDynamicInterval = function()
+    {
+        return __dynamicInterval;
+    }
+    
+    static GetDrawCalls = function ()
+    {
+        return __drawCalls;
+    }
+    
+    static GetParticalCount = function ()
+    {
+        return __particleCount;
     }
     
     static Step = function(_timeIncrement)

@@ -304,8 +304,8 @@ void main()
         
         vec2 PtScale = vec2(1.0, 1.0);
         
-        if (uParticleScale.x != 0.0) PtScale.x = sin(PtTimeAlive * uParticleScale.x * 5.0);
-        if (uParticleScale.y != 0.0) PtScale.y = sin(PtTimeAlive * uParticleScale.y * 5.0);
+        if (uParticleScale.x != 0.0) PtScale.x = cos(PtTimeAlive * uParticleScale.x * 5.0);
+        if (uParticleScale.y != 0.0) PtScale.y = cos(PtTimeAlive * uParticleScale.y * 5.0);
         
         vec2 scaledNormPos = vec2(vertNormPos.x * PtScale.x, vertNormPos.y * PtScale.y);
         

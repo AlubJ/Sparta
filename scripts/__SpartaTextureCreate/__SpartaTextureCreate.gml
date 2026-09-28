@@ -1,5 +1,12 @@
-function __SpartaCreateParticleTexture(_sprite, _spriteWidth, _spriteHeight, _imageCount)
+// Feather disable all
+
+/// 
+/// This function will create a GPU friendly texture for use
+/// in particle types.
+///
+function __SpartaTextureCreate(_sprite, _spriteWidth, _spriteHeight, _imageCount)
 {
+    gpu_push_state();
     gpu_set_zwriteenable(false);
     gpu_set_blendmode_ext(bm_one, bm_zero);
     
@@ -21,7 +28,7 @@ function __SpartaCreateParticleTexture(_sprite, _spriteWidth, _spriteHeight, _im
     var _texture = sprite_create_from_surface(_surface, 0, 0, _surfaceWidth, _surfaceHeight, 0, 0, 0, 0);
     surface_free(_surface);
     
-    gpu_set_blendmode(bm_normal);
+    gpu_pop_state();
     
     return _texture;
 }

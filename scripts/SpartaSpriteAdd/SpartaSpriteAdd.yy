@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSpriteAdd",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSpriteAdd",
+  "parent":{
+    "name":"Sparta",
+    "path":"folders/Sparta.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -17,6 +17,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
     __shape = SPARTA_SHAPE_SPHERE;
     __distribution = SPARTA_DISTR_LINEAR;
     
+    __dynamic = false;
+    
     __parent = undefined;
     __particleType = undefined;
     __particlesPerStep = 0;
@@ -26,6 +28,14 @@ function __SpartaClassEmitter(_particleSystem) constructor
     __deathTime = __creationTime + __lifeSpan;
     
     array_push(__particleSystem.__emitters, self);
+    
+    static __Activate = function()
+    {
+        if (array_get_index(__particleSystem.__activeEmitters, self) == -1)
+        {
+            array_push(__particleSystem.__activeEmitters, self);
+        }
+    }
     
     static Destroy = function()
     {
@@ -42,9 +52,9 @@ function __SpartaClassEmitter(_particleSystem) constructor
         }
     }
     
-    static Stream = function(_particleType, _particlesPerStep, _lifeSpan, _dynamic = false)
+    static Stream = function(_particleType, _particlesPerStep, _lifeSpan)
     {
-        if (_dynamic)
+        if (__dynamic)
         {
             if (Retire(true))
             {
@@ -61,9 +71,9 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __Activate();
     }
     
-    static Burst = function(_particleType, _count, _dynamic = false)
+    static Burst = function(_particleType, _count)
     {
-        if (_dynamic)
+        if (__dynamic)
         {
             Retire(true);
         }
@@ -75,62 +85,6 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __creationTime = __particleSystem.__time;
         __lifeSpan = _count / __particlesPerStep;
         __Activate();
-    }
-    
-    static __Activate = function()
-    {
-        if (array_get_index(__particleSystem.__activeEmitters, self) == -1)
-        {
-            array_push(__particleSystem.__activeEmitters, self);
-        }
-    }
-    
-    static SetRegion = function(_matrix, _xScale, _yScale, _zScale, _shape, _distribution, _dynamic = false)
-    {
-        if (!__SpartaMatrixOrthogonalize(_matrix))
-        {
-            __SpartaError("Bad matrix passed in to `SetRegion`.");
-        }
-        
-        if (_xScale == 0)
-        {
-            _xScale = 0.0001;
-        }
-        
-        if (_yScale == 0)
-        {
-            _yScale = 0.0001;
-        }
-        
-        if (_zScale == 0)
-        {
-            _zScale = 0.0001;
-        }
-        
-        __SpartaMatrixScale(_matrix, _xScale, _yScale, _zScale);
-        
-        if (_dynamic)
-        {
-            if (Retire(true))
-            {
-                __creationTime = __particleSystem.__time;
-                __startMatrix = __endMatrix;
-                __id = irandom(256);
-            }
-        }
-        else
-        {
-            __startMatrix = _matrix;
-        }
-        
-        __endMatrix = _matrix;
-        __shape = _shape;
-        __distribution = _distribution;
-        
-        if (__particleSystem.__time < __deathTime)
-        {
-            __Activate();
-        }
     }
     
     static Mature = function()
@@ -198,4 +152,93 @@ function __SpartaClassEmitter(_particleSystem) constructor
         
         return true;
     }
+    
+    #region Setters
+    
+    static SetRegion = function(_matrix, _xScale, _yScale, _zScale)
+    {
+        if (!__SpartaMatrixOrthogonalize(_matrix))
+        {
+            __SpartaError("Bad matrix passed in to `SetRegion`.");
+        }
+        
+        if (_xScale == 0)
+        {
+            _xScale = 0.0001;
+        }
+        
+        if (_yScale == 0)
+        {
+            _yScale = 0.0001;
+        }
+        
+        if (_zScale == 0)
+        {
+            _zScale = 0.0001;
+        }
+        
+        __SpartaMatrixScale(_matrix, _xScale, _yScale, _zScale);
+        
+        if (__dynamic)
+        {
+            if (Retire(true))
+            {
+                __creationTime = __particleSystem.__time;
+                __startMatrix = __endMatrix;
+                __id = irandom(256);
+            }
+        }
+        else
+        {
+            __startMatrix = _matrix;
+        }
+        
+        __endMatrix = _matrix;
+        
+        if (__particleSystem.__time < __deathTime)
+        {
+            __Activate();
+        }
+    }
+    
+    static SetShape = function(_shape)
+    {
+        __shape = _shape;
+    }
+    
+    static SetDistribution = function(_distribution)
+    {
+        __distribution = _distribution;
+    }
+    
+    static SetDynamic = function(_dynamic)
+    {
+        __dynamic = _dynamic;
+    }
+    
+    static SetSector = function(_sectorAngle)
+    {
+        __sector = _sector;
+    }
+    
+    #endregion
+    
+    #region Getters
+    
+    static GetShape = function()
+    {
+        return __shape;
+    }
+    
+    static GetDistribution = function()
+    {
+        return __distribution;
+    }
+    
+    static GetSector = function()
+    {
+        return __sector;
+    }
+    
+    #endregion
 }

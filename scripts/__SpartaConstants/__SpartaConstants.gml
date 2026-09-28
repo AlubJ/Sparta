@@ -1,7 +1,7 @@
 // Feather disable all
 
-#macro SPARTA_VERSION "0.0.1"
-#macro SPARTA_DATE "26-09-27"
+#macro SPARTA_VERSION "1.0.0"
+#macro SPARTA_DATE "28-09-27"
 
 #macro SPARTA_RUNNING_FROM_IDE (GM_build_type == "run")
 
@@ -23,7 +23,7 @@
 #macro SPARTA_DISTR_INVGUASSIAN ps_distr_invgaussian
 
 // Particle type type
-#macro SPARTA_TYPE_DEFAULT 0
+#macro SPARTA_TYPE_SPRITE 0
 #macro SPARTA_TYPE_MESH 1
 
 #macro SPARTA_MAX_BURST_COUNT 99999

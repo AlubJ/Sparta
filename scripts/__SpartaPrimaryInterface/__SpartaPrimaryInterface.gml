@@ -1,3 +1,5 @@
+// Feather disable all
+
 function __SpartaPrimaryInterface() constructor
 {
     __shader = __PrimaryShader;

@@ -1,8 +1,10 @@
+// Feather disable all
+
 function __SpartaClassType() constructor
 {
     static _sprites = __SpartaSystem().__sprites;
     
-    __type = SPARTA_TYPE_DEFAULT;
+    __type = SPARTA_TYPE_SPRITE;
     
     __sprite = undefined;
     __spriteOrigin = [ 0, 0 ];
@@ -35,10 +37,22 @@ function __SpartaClassType() constructor
     __childCount = 0;
     __deathCount = 0;
     
-    #region Sprite Setters
+    __mesh = undefined;
+    __meshRotationAxis = [ 0, 0, 0, 0 ];
+    __meshLightDirection = [ 0, 0, 0 ];
+    __meshLightColor = [ 1, 1, 1 ];
+    __meshAmbientColor = [ 0.25, 0.25, 0.25 ];
+    __meshCountPerBatch = 0;
+    
+    #region Setters
     
     static SetSprite = function(_sprite, _speed, _randomize)
     {
+        if (!sprite_exists(_sprite))
+        {
+            __SpartaError($"Sprite `{_sprite}` does not exist.");
+        }
+        
         var _spriteWidth = sprite_get_width(_sprite);
         var _spriteHeight = sprite_get_height(_sprite);
         var _imageCount = sprite_get_number(_sprite);
@@ -56,7 +70,7 @@ function __SpartaClassType() constructor
         }
         else
         {
-            __sprite = __SpartaCreateParticleTexture(_sprite, _spriteWidth, _spriteHeight, _imageCount);
+            __sprite = __SpartaTextureCreate(_sprite, _spriteWidth, _spriteHeight, _imageCount);
             _sprites[$ _sprite] = __sprite;
         }
     }
@@ -135,12 +149,27 @@ function __SpartaClassType() constructor
         __sizeClamp[1] = _maxClamp;
     }
     
-    static SetBlend = function(_source, _destination, _zWrite)
+    static SetScale = function(_xScale, _yScale)
     {
-        __zWrite = _zWrite;
-        __blendEnable = true;
+        __scale[0] = _xScale;
+        __scale[1] = _yScale;
+    }
+    
+    static SetBlend = function(_enabled, _source, _destination)
+    {
+        __blendEnable = _enabled;
         __blendSource = _source;
         __blendDestination = _destination;
+    }
+    
+    static SetZWrite = function(_zWrite)
+    {
+        __zWrite = _zWrite;
+    }
+    
+    static SetCullMode = function(_cullmode)
+    {
+        __cullmode = _cullmode;
     }
     
     static SetAlphaTest = function(_testReference)
@@ -210,6 +239,64 @@ function __SpartaClassType() constructor
         
         __deathType = _particleType;
         __deathCount = _count;
+    }
+    
+    #endregion
+    
+    #region Mesh Setters
+    
+    static SetMesh = function(_meshBuffer, _vertexFormat)
+    {
+        
+    }
+    
+    static SetMeshAmbientColor = function(_ambientColor)
+    {
+        __meshAmbientColor[0] = color_get_red(_ambientColor) / 255;
+        __meshAmbientColor[1] = color_get_green(_ambientColor) / 255;
+        __meshAmbientColor[2] = color_get_blue(_ambientColor) / 255;
+    }
+    
+    static SetMeshLightColor = function(_lightColor)
+    {
+        __meshLightColor[0] = color_get_red(_lightColor) / 255;
+        __meshLightColor[1] = color_get_green(_lightColor) / 255;
+        __meshLightColor[2] = color_get_blue(_lightColor) / 255;
+    }
+    
+    static SetMeshLightDirection = function(_xDirection, _yDirection, _zDirection)
+    {
+        var _length = _xDirection * _xDirection + _yDirection * _yDirection + _zDirection * _zDirection;
+        
+        if (_length != 0 && _length != 1)
+        {
+            _length = 1 / sqrt(_length);
+            _xDirection *= _length;
+            _yDirection *= _length;
+            _zDirection *= _length;
+        }
+        
+        __meshLightDirection[0] = _xDirection;
+        __meshLightDirection[1] = _yDirection;
+        __meshLightDirection[2] = _zDirection;
+    }
+    
+    static SetMeshRotationAxis = function(_xAxis, _yAxis, _zAxis, _angle)
+    {
+        var _length = _xAxis * _xAxis + _yAxis * _yAxis + _zAxis * _zAxis;
+        
+        if (_length != 0 && _length != 1)
+        {
+            _length = 1 / sqrt(_length);
+            _xAxis *= _length;
+            _yAxis *= _length;
+            _zAxis *= _length;
+        }
+        
+        __meshRotationAxis[0] = _xAxis;
+        __meshRotationAxis[1] = _yAxis;
+        __meshRotationAxis[2] = _zAxis;
+        __meshRotationAxis[3] = degtorad(_angle);
     }
     
     #endregion

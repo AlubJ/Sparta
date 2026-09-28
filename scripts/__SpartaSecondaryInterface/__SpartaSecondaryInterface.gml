@@ -1,3 +1,5 @@
+// Feather disable all
+
 function __SpartaSecondaryInterface() constructor
 {
     __shader = __SecondaryShader;

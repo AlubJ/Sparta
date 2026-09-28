@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__SpartaCreateParticleTexture",
+  "%Name":"__SpartaTextureCreate",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__SpartaCreateParticleTexture",
+  "name":"__SpartaTextureCreate",
   "parent":{
     "name":"Supplementary",
     "path":"folders/Sparta/(Backend)/Supplementary.yy",

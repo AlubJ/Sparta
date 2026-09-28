@@ -1,3 +1,5 @@
+// Feather disable all
+
 function __SpartaBatchCreate(_particleCount)
 {
     static _system = __SpartaSystem();
