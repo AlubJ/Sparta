@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__SpartaBase64ToMesh",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__SpartaBase64ToMesh",
+  "parent":{
+    "name":"Supplementary",
+    "path":"folders/Sparta/(Backend)/Supplementary.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

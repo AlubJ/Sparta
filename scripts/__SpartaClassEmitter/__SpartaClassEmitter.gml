@@ -131,6 +131,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
         _retired.__lifeSpan = min(__lifeSpan, __particleSystem.__time + __particleType.__life[1]);
         _retired.__creationTime = __creationTime;
         _retired.__deathTime = __creationTime + _retired.__lifeSpan + __particleType.__life[1];
+        array_copy(_retired.__startMatrix, 0, __startMatrix, 0, 16);
+		array_copy(_retired.__endMatrix, 0, __endMatrix, 0, 16);
         
         var _childType = __particleType.__childType;
         if (__SpartaEnsureType(_childType))
@@ -238,6 +240,54 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static GetSector = function()
     {
         return __sector;
+    }
+    
+    #endregion
+    
+    #region Serialization
+    
+    static Serialize = function()
+    {
+        if (__dynamic)
+        {
+            __SpartaError("Cannot serialize a dynamic emitter.");
+        }
+        
+        var _struct = { 
+            id: __id,
+            
+            matrix: variable_clone(__startMatrix),
+            
+            sector: __sector,
+            shape: __shape,
+            distribution: __distribution,
+        };
+        
+        return _struct;
+    }
+    
+    static Deserialize = function(_struct)
+    {
+        if (!is_struct(_struct))
+        {
+            __SpartaError($"Struct parameter must be a struct.");
+        }
+        
+        try
+        {
+            __id = _struct[$ "id"];
+            
+            array_copy(__startMatrix, 0, _struct[$ "matrix"], 0, 16);
+		    array_copy(__endMatrix, 0, _struct[$ "matrix"], 0, 16);
+            
+            __sector = _struct[$ "sector"];
+            __shape = _struct[$ "shape"];
+            __distribution = _struct[$ "distribution"];
+        }
+        catch (_e)
+        {
+            __SpartaError($"Error deserializing emitter struct.");
+        }
     }
     
     #endregion

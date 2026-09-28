@@ -32,6 +32,7 @@
   "resources":[
     {"id":{"name":"objTest","path":"objects/objTest/objTest.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"__SpartaBase64ToMesh","path":"scripts/__SpartaBase64ToMesh/__SpartaBase64ToMesh.yy",},},
     {"id":{"name":"__SpartaBatchCreate","path":"scripts/__SpartaBatchCreate/__SpartaBatchCreate.yy",},},
     {"id":{"name":"__SpartaClassEmitter","path":"scripts/__SpartaClassEmitter/__SpartaClassEmitter.yy",},},
     {"id":{"name":"__SpartaClassSystem","path":"scripts/__SpartaClassSystem/__SpartaClassSystem.yy",},},
@@ -44,6 +45,7 @@
     {"id":{"name":"__SpartaGetBatchIndex","path":"scripts/__SpartaGetBatchIndex/__SpartaGetBatchIndex.yy",},},
     {"id":{"name":"__SpartaMatrixOrthogonalize","path":"scripts/__SpartaMatrixOrthogonalize/__SpartaMatrixOrthogonalize.yy",},},
     {"id":{"name":"__SpartaMatrixScale","path":"scripts/__SpartaMatrixScale/__SpartaMatrixScale.yy",},},
+    {"id":{"name":"__SpartaMeshToBase64","path":"scripts/__SpartaMeshToBase64/__SpartaMeshToBase64.yy",},},
     {"id":{"name":"__SpartaPrimaryInterface","path":"scripts/__SpartaPrimaryInterface/__SpartaPrimaryInterface.yy",},},
     {"id":{"name":"__SpartaSecondaryInterface","path":"scripts/__SpartaSecondaryInterface/__SpartaSecondaryInterface.yy",},},
     {"id":{"name":"__SpartaSystem","path":"scripts/__SpartaSystem/__SpartaSystem.yy",},},

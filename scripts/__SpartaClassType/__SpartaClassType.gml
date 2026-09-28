@@ -7,6 +7,7 @@ function __SpartaClassType() constructor
     __type = SPARTA_TYPE_SPRITE;
     
     __sprite = undefined;
+    __spriteSource = undefined;
     __spriteOrigin = [ 0, 0 ];
     __spriteSettings = [ 0, 0, 0, 0 ];
     
@@ -24,9 +25,9 @@ function __SpartaClassType() constructor
     __color = array_create(16, 0);
     __colorType = 1;
     
+    __blendEnable = true;
     __blendSource = bm_src_alpha;
     __blendDestination = bm_inv_src_alpha;
-    __blendEnable = true;
     __alphaTest = 1 / 255;
     __zWrite = true;
     __cullmode = cull_noculling;
@@ -72,6 +73,14 @@ function __SpartaClassType() constructor
         {
             __sprite = __SpartaTextureCreate(_sprite, _spriteWidth, _spriteHeight, _imageCount);
             _sprites[$ _sprite] = __sprite;
+        }
+        
+        __spriteSource = _sprite;
+        __type = SPARTA_TYPE_SPRITE;
+        
+        if (vertex_buffer_exists(__mesh))
+        {
+            vertex_delete_buffer(__mesh);
         }
     }
     
@@ -247,7 +256,12 @@ function __SpartaClassType() constructor
     
     static SetMesh = function(_meshBuffer, _vertexFormat)
     {
+        __type = SPARTA_TYPE_MESH;
         
+        if (vertex_buffer_exists(__mesh))
+        {
+            vertex_delete_buffer(__mesh);
+        }
     }
     
     static SetMeshAmbientColor = function(_ambientColor)
@@ -297,6 +311,78 @@ function __SpartaClassType() constructor
         __meshRotationAxis[1] = _yAxis;
         __meshRotationAxis[2] = _zAxis;
         __meshRotationAxis[3] = degtorad(_angle);
+    }
+    
+    static Destroy = function()
+    {
+        if (vertex_buffer_exists(__mesh))
+        {
+            vertex_delete_buffer(__mesh);
+        }
+        
+        __type = SPARTA_TYPE_SPRITE;
+    }
+    
+    #endregion
+    
+    #region Serialization
+    
+    static Serialize = function(_serializeChildren = false)
+    {
+        var _struct = { 
+            type: __type,
+            
+            sprite: __spriteSource != undefined ? sprite_get_name(__spriteSource) : undefined,
+            spriteSettings: variable_clone(__spriteSettings),
+            
+            size: variable_clone(__size),
+            sizeClamp: variable_clone(__sizeClamp),
+            scale: variable_clone(__scale),
+            speed: variable_clone(__speed),
+            direction: variable_clone(__direction),
+            directionRadial: __directionRadial,
+            gravity: variable_clone(__gravity),
+            life: variable_clone(__life),
+            angle: variable_clone(__angle),
+            angleRelative: __angleRelative,
+            
+            color: variable_clone(__color),
+            colorType: __colorType,
+            
+            blendEnable: __blendEnable,
+            blendSource: __blendSource,
+            blendDestination: __blendDestination,
+            alphaTest: __alphaTest,
+            zWrite: __zWrite,
+            cullmode: __cullmode,
+            
+            childType: (__childType != undefined && _serializeChildren) ? __childType.Serialize(false) : undefined,
+            deathType: (__deathType != undefined && _serializeChildren) ? __deathType.Serialize(false) : undefined,
+            
+            childCount: __childCount,
+            deathCount: __deathCount,
+            
+            mesh: (vertex_buffer_exists(__mesh) && SPARTA_RUNNING_FROM_IDE) ? __SpartaMeshToBase64(__mesh) : undefined,
+            meshRotationAxis: variable_clone(__meshRotationAxis),
+            meshLightDirection: variable_clone(__meshLightDirection),
+            meshLightColor: variable_clone(__meshLightColor),
+            meshAmbientColor: variable_clone(__meshAmbientColor),
+            meshCountPerBatch: __meshCountPerBatch,
+        };
+        
+        return _struct;
+    }
+    
+    static Deserialize = function(_struct)
+    {
+        try
+        {
+            
+        }
+        catch (_e)
+        {
+            __SpartaError($"Error deserializing type struct.");
+        }
     }
     
     #endregion
