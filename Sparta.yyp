@@ -188,6 +188,7 @@
     {"id":{"name":"SpartaTypeGetMeshRotationAxis","path":"scripts/SpartaTypeGetMeshRotationAxis/SpartaTypeGetMeshRotationAxis.yy",},},
     {"id":{"name":"SpartaTypeGetScale","path":"scripts/SpartaTypeGetScale/SpartaTypeGetScale.yy",},},
     {"id":{"name":"SpartaTypeGetSize","path":"scripts/SpartaTypeGetSize/SpartaTypeGetSize.yy",},},
+    {"id":{"name":"SpartaTypeGetSizeClamp","path":"scripts/SpartaTypeGetSizeClamp/SpartaTypeGetSizeClamp.yy",},},
     {"id":{"name":"SpartaTypeGetSpeed","path":"scripts/SpartaTypeGetSpeed/SpartaTypeGetSpeed.yy",},},
     {"id":{"name":"SpartaTypeGetSprite","path":"scripts/SpartaTypeGetSprite/SpartaTypeGetSprite.yy",},},
     {"id":{"name":"SpartaTypeGetType","path":"scripts/SpartaTypeGetType/SpartaTypeGetType.yy",},},
