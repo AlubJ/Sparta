@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeSetDeath",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeSetDeath",
+  "parent":{
+    "name":"Setters",
+    "path":"folders/Sparta/Type/Setters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeSetMeshLightDirection",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeSetMeshLightDirection",
+  "parent":{
+    "name":"Mesh",
+    "path":"folders/Sparta/Type/Setters/Mesh.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

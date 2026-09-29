@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeSetSize",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeSetSize",
+  "parent":{
+    "name":"Setters",
+    "path":"folders/Sparta/Type/Setters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

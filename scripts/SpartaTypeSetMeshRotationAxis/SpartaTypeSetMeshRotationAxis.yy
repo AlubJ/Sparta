@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeSetMeshRotationAxis",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeSetMeshRotationAxis",
+  "parent":{
+    "name":"Mesh",
+    "path":"folders/Sparta/Type/Setters/Mesh.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

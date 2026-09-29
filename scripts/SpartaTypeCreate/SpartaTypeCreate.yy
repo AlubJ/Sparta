@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeCreate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeCreate",
+  "parent":{
+    "name":"Type",
+    "path":"folders/Sparta/Type.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
