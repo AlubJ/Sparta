@@ -27,5 +27,5 @@ function SpartaEffectAddStream(_effect, _time, _type, _particlesPerStep, _durati
         __SpartaError("Effect passed in is invalid.");
     }
     
-    _effect.AddBurst(_time, _type, _particlesPerStep, _duration, _xPosition, _yPosition, _zPosition, _xRotation = 0, _yRotation = 0, _zRotation = 0, _xScale = 1, _yScale = 1, _zScale = 1, _shape = SPARTA_SHAPE_SPHERE, _sector = 360, _distribution = SPARTA_DISTR_LINEAR);
+    _effect.AddBurst(_time, _type, _particlesPerStep, _duration, _xPosition, _yPosition, _zPosition, _xRotation, _yRotation, _zRotation, _xScale, _yScale, _zScale, _shape, _sector, _distribution);
 }
