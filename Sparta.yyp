@@ -41,7 +41,6 @@
     {"$GMFolder":"","%Name":"Mesh","folderPath":"folders/Sparta/Type/Getters/Mesh.yy","name":"Mesh","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Setters","folderPath":"folders/Sparta/Type/Setters.yy","name":"Setters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Mesh","folderPath":"folders/Sparta/Type/Setters/Mesh.yy","name":"Mesh","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Test","folderPath":"folders/Test.yy","name":"Test","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
