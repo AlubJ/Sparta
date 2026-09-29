@@ -18,16 +18,16 @@ SpartaTypeSetGravity(particleType, 0, 0, -1, 1);
 SpartaTypeSetSpeed(particleType, 2, 4, -0.1, 0);
 
 // Create the effect
-particleEffect = new __SpartaClassEffect();
-particleEffect.AddBurst(0, particleType, 500, 0, 0, 0);
-particleEffect.AddBurst(1, particleType, 200, 5, 5, 5);
-particleEffect.AddBurst(2, particleType, 100, -5, 0, 5);
-particleEffect.AddBurst(3, particleType, 50, -5, 0, -5);
-particleEffect.AddBurst(4, particleType, 50, -5, 0, -5);
-particleEffect.AddBurst(5, particleType, 50, -5, 0, -5);
-particleEffect.AddBurst(6, particleType, 50, -5, 0, -5);
-particleEffect.AddBurst(7, particleType, 50, -5, 0, -5);
-particleEffect.AddBurst(8, particleType, 50, -5, 0, -5);
+particleEffect = SpartaEffectCreate();
+SpartaEffectAddBurst(particleEffect, 0, particleType, 500, 0, 0, 0);
+SpartaEffectAddBurst(particleEffect, 1, particleType, 200, 5, 5, 5);
+SpartaEffectAddBurst(particleEffect, 2, particleType, 100, -5, 0, 5);
+SpartaEffectAddBurst(particleEffect, 3, particleType, 50, -5, 0, -5);
+SpartaEffectAddBurst(particleEffect, 4, particleType, 50, -5, 0, -5);
+SpartaEffectAddBurst(particleEffect, 5, particleType, 50, -5, 0, -5);
+SpartaEffectAddBurst(particleEffect, 6, particleType, 50, -5, 0, -5);
+SpartaEffectAddBurst(particleEffect, 7, particleType, 50, -5, 0, -5);
+SpartaEffectAddBurst(particleEffect, 8, particleType, 50, -5, 0, -5);
 
 // Play the effect
 particleEffectInstance = SpartaEffectPlay(particleSystem, particleEffect, 0, 0, 0);
