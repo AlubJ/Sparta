@@ -1,7 +1,7 @@
 // Feather disable all
 
-#macro SPARTA_VERSION "1.0.0"
-#macro SPARTA_DATE "28-09-27"
+#macro SPARTA_VERSION "0.9.0"
+#macro SPARTA_DATE "29-09-27"
 
 #macro SPARTA_RUNNING_FROM_IDE (GM_build_type == "run")
 
