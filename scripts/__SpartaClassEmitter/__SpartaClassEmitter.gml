@@ -455,13 +455,13 @@ function __SpartaClassEmitter(_particleSystem) constructor
         var _time = __creationTime + __lifeSpan + __particleType.__life[1];
         
         var _childType = __particleType.__childType;
-        if (!__SpartaEnsureType(_childType))
+        if (__SpartaEnsureType(_childType))
         {
             _time += _childType.__life[1];
         }
         
         var _deathType = __particleType.__deathType;
-        if (!__SpartaEnsureType(_deathType))
+        if (__SpartaEnsureType(_deathType))
         {
             _time += _deathType.__life[1];
         }

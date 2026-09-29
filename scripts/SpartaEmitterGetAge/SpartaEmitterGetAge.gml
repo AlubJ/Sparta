@@ -4,7 +4,7 @@
 /// Get the age of an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-function SpartaEmitterGetRegion(_emitter)
+function SpartaEmitterGetAge(_emitter)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {
