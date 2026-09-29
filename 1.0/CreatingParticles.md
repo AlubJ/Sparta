@@ -1,20 +1,5 @@
 # Creating Particles
 
-## Concepts
-Before creating particles we'll need to run through a couple of concepts.
-
-### Particle Systems
-A particle system is a container which holds active emitters. A particle system is responsible for stepping and drawing all active emitters.
-
-### Emitters
-An emitter is what will spawn particles, and decides how, when and where to spawn them. An emitter can only spawn one particle type at a time.
-
-### Particle Types
-A particle type is the particle itself. How it looks and behaves on an induvidual level.
-
-## Functions
-Before we get started, examples in these docs are going to use the function based API. Most functions have a method alternative in the class of whatever type they target. These are documented in the API reference and you can choose to use the methods instead. All methods return the struct back so you can chain methods.
-
 ## Creating a Particle System
 You don't have to create a particle system to draw particles, a global system is provided for you which is accessible via `SpartaSystemGetGlobal()`. One particle system is usually good enough for drawing all particles but you can create a bespoke system for specific needs.
 
@@ -38,8 +23,8 @@ To be able to draw any particles at all, we need an emitter to spawn them.
 
 ```gml
 /// Create event
-emitter = SpartaEmitterCreate(particleSystem);
-SpartaEmitterSetRegion(0, 0, 0, 0, 0, 0, 1, 1, 1);
+particleEmitter = SpartaEmitterCreate(particleSystem);
+SpartaEmitterSetRegion(particleEmitter, 0, 0, 0, 0, 0, 0, 1, 1, 1);
 ```
 
 We pass the particle system into the emitter so the emitter has the right context. The region we set is a simple box region with the same parameters as `matrix_build`.
@@ -69,7 +54,7 @@ We need to step our particle system for any particles to be able to spawn. In yo
 
 ```gml
 /// Step event
-SpartaSystemStep(particleSystem, 1 / fps);
+SpartaSystemStep(particleSystem, 1 / game_get_speed(gamespeed_fps));
 ```
 
 The time increment can be whatever value but generally `1` full timestep should be mapped to `1` real-world second.

@@ -12,7 +12,7 @@
 
 <!---------------------------------------------------------------------------->
 
-[License]: LICENSE.md
+[License]: License.md
 [Download]: https://github.com/AlubJ/Sparta/releases/latest
 [Documentation]: https://docs.alub.dev/Sparta
 
@@ -36,3 +36,8 @@ There are a couple reasons for this. Firstly, I wanted to update the API for my 
 The entire API has been reworked as well as a lot of the backend stuff you don't normally see. The way you interact with the Sparta API is via functions where you pass in the system, emitter or type instead of dotting into them. You can still dot into each of those as internally they are still constructor, however, I usually prefer function calls for this sort of thing.
 
 There is also a couple of added features. For sprite particle types, you can now supply a scale speed value for both the X scale and Y scale. Setting these will have the sprite particle scale along those axis via a sine wave, which can give the illusion that particles are actually 3D and are spinning. You can also serialize and deserialize emitters and types for caching. And finally, there is now a global partical system which you can use. Of course you can still create induvidual particle systems, but the option for a global system is now there.
+
+## Credits
+- [theSnidr](https://www.youtube.com/@TheSnidr): The creator of sPart which this libary is a rewrite of.
+- [kenney.nl](https://kenney.nl/): The awesome particle sprites used in the demos.
+- Cecil: Providing the sick GameMaker logo 3D model.

@@ -6,6 +6,6 @@ Sparta includes a series of subfolders which includes the API - the interface th
 # Updating Sparta
 Sparta will be supported with updates to add new features or fix bugs.
 1. Create a backup of your configuration script.
-2. Delete the Sparta folder from your.
-3. Import the new Sparta .yymps.
+2. Delete the Sparta folder from your project.
+3. Import the new Sparta `.yymps`.
 4. Restore the configuration. Some macros may have changed between versions so take extra care when restoring values.

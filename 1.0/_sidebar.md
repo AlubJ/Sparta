@@ -10,16 +10,10 @@
 ---
 
 **API Reference**
-- *Touch*
-  - [Touch](Touch.md)
-  - [Touch Position](TouchPosition.md)
-  - [Touch Start](TouchStart.md)
-  - [Touch Delta](TouchDelta.md)
-- *Gestures*
-  - [Tap](Tap.md)
-  - [Dragging](Dragging.md)
-  - [Flick](Flick.md)
-  - [Rotating](Rotating.md)
-  - [Zooming](Zooming.md)
-- *Other*
-  - [Vibration](Vibration)
+- [Particle System](System)
+- [Particle Emitter](Emitter)
+- [Particle Type](Type)
+- [Effect](Effect)
+- [Effect Instance](EffectInstance)
+- [Sprite](Sprite)
+- [Global](Global)
