@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Particles",
-    "path":"folders/Demos/Sprites/Particles.yy",
+    "path":"folders/Demo/Sprites/Particles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

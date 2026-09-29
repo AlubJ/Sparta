@@ -10,9 +10,10 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"Demos","folderPath":"folders/Demos.yy","name":"Demos","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Demos/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Particles","folderPath":"folders/Demos/Sprites/Particles.yy","name":"Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Demo","folderPath":"folders/Demo.yy","name":"Demo","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Demo/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Demo/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Particles","folderPath":"folders/Demo/Sprites/Particles.yy","name":"Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sparta","folderPath":"folders/Sparta.yy","name":"Sparta","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"(Backend)","folderPath":"folders/Sparta/(Backend).yy","name":"(Backend)","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Classes","folderPath":"folders/Sparta/(Backend)/Classes.yy","name":"Classes","resourceType":"GMFolder","resourceVersion":"2.0",},
