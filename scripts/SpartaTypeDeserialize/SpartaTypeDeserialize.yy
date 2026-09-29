@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeDeserialize",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeDeserialize",
+  "parent":{
+    "name":"Type",
+    "path":"folders/Sparta/Type.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

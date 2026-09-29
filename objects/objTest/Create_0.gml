@@ -10,23 +10,18 @@ childPart.SetLife(10, 20);
 childPart.SetSize(0.1, 1, 0, 0, 1, 2);
 childPart.SetColor(c_green, 0, c_green, 1, c_maroon, 1, c_maroon, 0, false);
 
-var _buffer1 = buffer_load("particle.json");
-var _struct = json_parse(buffer_read(_buffer1, buffer_text));
-buffer_delete(_buffer1);
-
 part = new __SpartaClassType();
-part.Deserialize(_struct);
-//part.SetSprite(sprLeaf, 0, false);
+part.SetSprite(sprLeaf, 0, false);
 
-//part.SetLife(10, 20);
-//part.SetSize(0.1, 1, 0, 0, 1, 2);
-//part.SetColor(c_green, 0, c_green, 1, c_maroon, 1, c_maroon, 0, false);
-//part.SetGravity(0, 0, -1, 0.25);
-//part.SetScale(0, 0.5);
-//part.SetBlend(true, bm_src_alpha, bm_inv_src_alpha);
-//part.SetAngle(0, 360, 1, 0, false);
-//part.SetAlphaTest(100);
-//part.SetZWrite(true);
+part.SetLife(10, 20);
+part.SetSize(0.1, 1, 0, 0, 1, 2);
+part.SetColor(c_green, 0, c_green, 1, c_maroon, 1, c_maroon, 0, false);
+part.SetGravity(0, 0, -1, 0.25);
+part.SetScale(0, 0.5);
+part.SetBlend(true, bm_src_alpha, bm_inv_src_alpha);
+part.SetAngle(0, 360, 1, 0, false);
+part.SetAlphaTest(100);
+part.SetZWrite(true);
 //part.SetChild(childPart, 1);
 //part.SetCullMode(cull_counterclockwise);
 
@@ -41,20 +36,11 @@ var _buffer = buffer_load("gm.vbx");
 //part.SetMeshLightDirection(1, 1, -1);
 //part.SetMeshRotationAxis(1, 0, 0, 0);
 
-//var _struct = part.Serialize();
-//show_debug_message(_struct);
-//var _json = json_stringify(_struct, true);
-//show_debug_message(_json);
-//var _buffer2 = buffer_create(1, buffer_grow, 1);
-//buffer_write(_buffer2, buffer_text, _json);
-//buffer_save(_buffer2, "particle.json");
-//buffer_delete(_buffer2);
-
 emitter = new __SpartaClassEmitter(SpartaSystemGetGlobal());
 emitter.SetRegion(0, 0, 0, 0, 0, 0, 10, 10, 1);
 emitter.SetDynamic(true);
 emitter.SetShape(SPARTA_SHAPE_CUBE);
-emitter.Stream(part, 1000, -1);
+emitter.Stream(part, 1, -1);
 
 vertex_format_begin();
 vertex_format_add_position_3d();
