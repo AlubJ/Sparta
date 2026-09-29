@@ -92,4 +92,4 @@ SpartaEmitterStream(particleEmitter, particleType, 10, -1);
 
 Setting the lifespan to `-1` will cause the emitter to continuously stream particles out.
 
-[demo](assets/demo0/index.html ':include width=896px height=504px frameBorder=0')
+[demo](assets/demo0/index.html ':include width=100% frameBorder=0')
