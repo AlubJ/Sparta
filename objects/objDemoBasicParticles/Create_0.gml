@@ -27,3 +27,4 @@ SpartaEmitterStream(particleEmitter, particleType, 10, -1);
 // Set camera
 global.camera.setPitch(-25);
 global.camera.setYaw(45);
+global.camera.setLookPosition(0, 0, 1);

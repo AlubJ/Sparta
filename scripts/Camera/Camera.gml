@@ -32,7 +32,7 @@ function Camera() constructor
 	__zFar = 1000;
 	
 	// Aspect and FOV
-	__aspectRatio = window_get_width() / window_get_height();
+	__aspectRatio = room_width / room_height;
 	__fov = 70;
 	
 	// Matrices

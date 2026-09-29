@@ -85,4 +85,4 @@ repeat (array_length(global.rooms))
 }
 
 // Goto demo room
-room_goto(rmDemoBasicParticles);
+room_goto(rmDemoMeshParticles);
