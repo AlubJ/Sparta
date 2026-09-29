@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeGetMeshLightColor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeGetMeshLightColor",
+  "parent":{
+    "name":"Mesh",
+    "path":"folders/Sparta/Type/Getters/Mesh.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

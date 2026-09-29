@@ -9,12 +9,13 @@
 /// @param {Struct.__SpartaClassType} type The type.
 /// @param {Id.Buffer} meshBuffer
 /// @param {Id.VertexFormat} vertexFormat
-function SpartaTypeSetMesh(_type, _meshBuffer, _vertexFormat)
+/// @param {Real} batchSize
+function SpartaTypeSetMesh(_type, _meshBuffer, _vertexFormat, _batchSize)
 {
     if (!__SpartaEnsureType(_type))
     {
         __SpartaError($"Particle type passed in is invalid.");
     }
     
-    _type.SetMesh(_meshBuffer, _vertexFormat);
+    _type.SetMesh(_meshBuffer, _vertexFormat, _batchSize);
 }

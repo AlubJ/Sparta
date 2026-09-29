@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeGetBlend",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeGetBlend",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/Type/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaTypeGetSpeed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaTypeGetSpeed",
+  "parent":{
+    "name":"Getters",
+    "path":"folders/Sparta/Type/Getters.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

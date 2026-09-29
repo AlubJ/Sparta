@@ -46,6 +46,8 @@ function __SpartaClassType() constructor
     __meshAmbientColor = [ 0.25, 0.25, 0.25 ];
     __meshCountPerBatch = 0;
     
+    __destroyed = false;
+    
     #region Setters
     
     static SetSprite = function(_sprite, _speed, _randomize)
@@ -616,6 +618,12 @@ function __SpartaClassType() constructor
         __deathCount = 0;
         
         __type = SPARTA_TYPE_NONE;
+        __destroyed = true;
+    }
+    
+    static IsDestroyed = function()
+    {
+        return __destroyed;
     }
     
     #endregion
