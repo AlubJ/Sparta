@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will add a burst instruction to your effect.
+/// Add a burst instruction to an effect.
 ///
 /// @param {Struct.__SpartaClassEffect} effect
 /// @param {Real} time

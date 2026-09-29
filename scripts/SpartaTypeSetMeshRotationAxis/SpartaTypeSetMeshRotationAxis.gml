@@ -4,7 +4,7 @@
 /// Set the mesh rotation axis of a particle type. This is required when using
 /// particle rotations otherwise the mesh will not rotate.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} xAxis
 /// @param {Real} yAxis
 /// @param {Real} zAxis

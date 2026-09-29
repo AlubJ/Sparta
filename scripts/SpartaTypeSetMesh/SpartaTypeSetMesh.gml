@@ -6,7 +6,7 @@
 /// particle types. The mesh buffer and vertex format must contain
 /// position 3D (float3), normal (float3) and UV (float2) elemnts.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Id.Buffer} meshBuffer
 /// @param {Id.VertexFormat} vertexFormat
 /// @param {Real} batchSize

@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Get the shape from an emitter.
+/// Get the shape of an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 function SpartaEmitterGetShape(_emitter)

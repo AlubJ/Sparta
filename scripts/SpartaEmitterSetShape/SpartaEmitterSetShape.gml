@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Set the emitters emit shape.
+/// Set an emitters emit shape.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Id.SPARTA_SHAPE_*} shape

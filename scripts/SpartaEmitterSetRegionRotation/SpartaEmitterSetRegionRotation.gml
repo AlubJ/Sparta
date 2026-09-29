@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Set the emitters region rotation.
+/// Set an emitters region rotation.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Real} xRotation

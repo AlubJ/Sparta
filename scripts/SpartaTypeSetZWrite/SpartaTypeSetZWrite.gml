@@ -3,7 +3,7 @@
 ///
 /// Set the depth z write of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Bool} zWrite
 function SpartaTypeSetZWrite(_type, _zWrite)
 {

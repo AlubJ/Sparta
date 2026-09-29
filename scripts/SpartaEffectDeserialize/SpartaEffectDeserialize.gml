@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// Deserialize an effect from a struct.
+/// Deserialize an effect from a struct previously created from `SpartaEffectSerialize()`.
 ///
 /// @param {Struct.__SpartaClassEffect} effect
 /// @param {Struct} struct

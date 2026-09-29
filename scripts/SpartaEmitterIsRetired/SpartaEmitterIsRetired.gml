@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Return back whether an emitter is retired.
+/// Get whether an emitter is retired.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 function SpartaEmitterIsRetired(_emitter)

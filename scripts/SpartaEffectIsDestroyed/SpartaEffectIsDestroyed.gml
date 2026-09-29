@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// Check if an effect is destroyed.
+/// Check if an effect has been destroyed.
 ///
 /// @param {Struct.__SpartaClassEffect} effect
 function SpartaEffectIsDestroyed(_effect)

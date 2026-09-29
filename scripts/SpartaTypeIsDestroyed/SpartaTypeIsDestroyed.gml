@@ -3,7 +3,7 @@
 ///
 /// Get whether a particle type is destroyed.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeIsDestroyed(_type)
 {
     if (!__SpartaEnsureType(_type))

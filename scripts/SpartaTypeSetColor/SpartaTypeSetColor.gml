@@ -3,7 +3,7 @@
 ///
 /// Set the color for a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Constant.Color} color1
 /// @param {Real} alpha1
 /// @param {Constant.Color} [color2]

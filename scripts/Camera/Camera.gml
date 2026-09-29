@@ -124,14 +124,14 @@ function Camera() constructor
 	#region Getters and Setters
 	
 	/// @func getCamera()
-	/// @desc Return the raw camera.
+	/// @desc Get the raw camera.
 	static getCamera = function()
 	{
 		return __camera;
 	}
 	
 	/// @func getPosition()
-	/// @desc Return the raw position.
+	/// @desc Get the raw position.
 	static getPosition = function()
 	{
 		return position;
@@ -156,7 +156,7 @@ function Camera() constructor
 	}
 	
 	/// @func getLookPosition()
-	/// @desc Return the look position.
+	/// @desc Get the look position.
 	static getLookPosition = function()
 	{
 		return lookAtPosition;

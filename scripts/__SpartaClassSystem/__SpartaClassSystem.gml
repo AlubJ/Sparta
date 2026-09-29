@@ -205,13 +205,23 @@ function __SpartaClassSystem(_batchSize) constructor
         gpu_pop_state();
     }
     
-    static RetireAll = function(_force)
+    static RetireAllEmitters = function(_force)
     {
         var _i = array_length(__activeEmitters);
         
         while (--_i >= 0)
         {
             __activeEmitters[_i].Retire(_force);
+        }
+    }
+    
+    static StopAllEffects = function()
+    {
+        var _i = array_length(__activeEffects);
+        
+        while (--_i >= 0)
+        {
+            __activeEffects[_i].Stop();
         }
     }
     

@@ -3,7 +3,7 @@
 ///
 /// Get the angle of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetAngle(_type)
 {
     if (!__SpartaEnsureType(_type))

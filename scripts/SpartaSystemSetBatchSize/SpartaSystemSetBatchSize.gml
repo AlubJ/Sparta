@@ -3,7 +3,7 @@
 ///
 /// Set the batch size array of a system.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 /// @param {Array.Real} batchSizeArray
 function SpartaSystemSetBatchSize(_system, _batchSizeArray)
 {

@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Get the current sector angle from an emitter.
+/// Get the sector angle of an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 function SpartaEmitterGetSector(_emitter)

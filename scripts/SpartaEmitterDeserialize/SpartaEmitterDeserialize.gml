@@ -1,9 +1,9 @@
 // Feather disable all
 
 ///
-/// Deserialize emitter data from a struct.
+/// Deserialize emitter data from a struct previously created from `SpartaEmitterSerialize()`.
 ///
-/// @param {Struct.__SpartaClassEmitter} emitter The emitter
+/// @param {Struct.__SpartaClassEmitter} emitter
 /// @param {Struct} struct
 function SpartaEmitterDeserialize(_emitter, _struct)
 {

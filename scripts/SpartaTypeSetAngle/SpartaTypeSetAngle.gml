@@ -5,7 +5,7 @@
 /// origin and is measured in degrees. When an angle is relative, it will
 /// turn towards it's movement direction.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} minStartAngle
 /// @param {Real} maxStartAngle
 /// @param {Real} angleSpeed

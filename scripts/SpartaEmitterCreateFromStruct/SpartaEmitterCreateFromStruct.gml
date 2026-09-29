@@ -1,9 +1,9 @@
 // Feather disable all
 
 ///
-/// Create a new particle type from a struct.
+/// Create a new particle type from a struct previously created from `SpartaEmitterSerialize()`.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system that the emitter will use.
+/// @param {Struct.__SpartaClassSystem} system
 /// @param {Struct} struct
 function SpartaEmitterCreateFromStruct(_system, _struct)
 {

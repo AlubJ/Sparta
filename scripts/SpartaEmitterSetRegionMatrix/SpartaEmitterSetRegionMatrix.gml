@@ -1,8 +1,7 @@
 // Feather disable all
 
 ///
-/// Set the emitters emit region from a matrix and scale values. This will essentially
-/// set the emitters bounding box.
+/// Set an emitters emit region from a matrix and scale values.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Array.Matrix} matrix

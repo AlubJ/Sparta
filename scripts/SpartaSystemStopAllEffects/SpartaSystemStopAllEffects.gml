@@ -1,15 +1,15 @@
 // Feather disable all
 
 ///
-/// Get the batch size array of a system.
+/// Stop all currently active effects in a system.
 ///
 /// @param {Struct.__SpartaClassSystem} system
-function SpartaSystemGetBatchSize(_system)
+function SpartaSystemStopAllEffects(_system)
 {
     if (!__SpartaEnsureSystem(_system))
     {
         __SpartaError($"Particle system passed in is invalid.");
     }
     
-    return _system.GetBatchSize();
+    _system.StopAllEffects();
 }

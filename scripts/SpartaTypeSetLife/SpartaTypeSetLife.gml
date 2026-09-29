@@ -4,7 +4,7 @@
 /// Set the life of a particle type. Life is in step units which is based on
 /// the particle systems time increment.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} minLife
 /// @param {Real} maxLife
 function SpartaTypeSetLife(_type, _minLife, _maxLife)

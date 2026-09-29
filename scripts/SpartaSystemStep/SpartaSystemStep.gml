@@ -6,8 +6,8 @@
 /// seconds, so the usual formula for stepping the system would be `1/fps`
 /// though this can be changed for various reasons.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system to step.
-/// @param {Real} increment The amount of time to increment this frame.
+/// @param {Struct.__SpartaClassSystem} system
+/// @param {Real} increment
 function SpartaSystemStep(_system, _increment)
 {
     if (!__SpartaEnsureSystem(_system))

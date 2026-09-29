@@ -1,7 +1,8 @@
 // Feather disable all
 
 ///
-/// Set the emitters region.
+/// Set an emitters region. The region is the point and bounds in space where a particle
+/// can spawn.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Real} xPosition

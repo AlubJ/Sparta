@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Set the emitters region scale.
+/// Set an emitters region scale.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Real} xScale

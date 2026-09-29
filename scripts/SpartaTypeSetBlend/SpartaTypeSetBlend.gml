@@ -3,7 +3,7 @@
 ///
 /// Set the blend mode of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Bool} enable
 /// @param {Constant.BlendModeFactor} source
 /// @param {Constant.BlendModeFactor} destination

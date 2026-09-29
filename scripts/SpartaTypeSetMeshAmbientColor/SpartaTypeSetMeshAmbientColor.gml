@@ -3,7 +3,7 @@
 ///
 /// Set the mesh ambient color of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Constant.Color} ambientColor
 function SpartaTypeSetMeshAmbientColor(_type, _ambientColor)
 {

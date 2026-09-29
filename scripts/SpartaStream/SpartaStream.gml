@@ -1,7 +1,8 @@
 // Feather disable all
 
 ///
-/// Fire-and-forget stream of a particle type.
+/// Fire-and-forget stream of a particle type. This will create a temporary
+/// emitter, and clean itself up afterwards.
 ///
 /// @param {Struct.__SpartaClassSystem} system
 /// @param {Struct.__SpartaClassType} type

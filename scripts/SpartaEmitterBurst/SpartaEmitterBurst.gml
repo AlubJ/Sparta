@@ -1,11 +1,11 @@
 // Feather disable all
 
 ///
-/// Burst particles out once.
+/// A particle burst is a single count of particles being spawned at once.
 ///
-/// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-/// @param {Struct.__SpartaClassType} type The particle type to emit.
-/// @param {Real} count The amount of particles to emit.
+/// @param {Struct.__SpartaClassEmitter} emitter
+/// @param {Struct.__SpartaClassType} type
+/// @param {Real} count
 function SpartaEmitterBurst(_emitter, _type, _count)
 {
     if (!__SpartaEnsureEmitter(_emitter))

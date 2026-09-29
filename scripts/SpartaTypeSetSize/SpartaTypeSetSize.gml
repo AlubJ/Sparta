@@ -3,7 +3,7 @@
 ///
 /// Set the size of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} minStartSize
 /// @param {Real} maxStartSize
 /// @param {Real} sizeSpeed

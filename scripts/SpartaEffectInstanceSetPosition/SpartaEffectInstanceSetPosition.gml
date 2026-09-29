@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will set an effect instances position.
+/// Set an effect instances position.
 ///
 /// @param {Struct.__SpartaClassEffectInstance} instance
 /// @param {Real} xPosition

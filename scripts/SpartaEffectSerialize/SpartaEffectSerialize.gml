@@ -1,7 +1,8 @@
 // Feather disable all
 
 /// 
-/// Serialize an effect to a struct
+/// Serialize an effect to a struct. This will also serialize all particle types registered
+/// to the effect, alongside those particles children and meshes.
 ///
 /// @param {Struct.__SpartaClassEffect} effect
 function SpartaEffectSerialize(_effect)

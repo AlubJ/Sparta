@@ -1,8 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will play the effect at specific coordinates unlike
-/// `SpartaEffectInstancePlay`.
+/// Play the effect at specific coordinates unlike `SpartaEffectInstancePlay()`.
 ///
 /// @param {Struct.__SpartaClassEffectInstance} instance
 /// @param {Real} xPosition

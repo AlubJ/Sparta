@@ -3,7 +3,7 @@
 ///
 /// Get the dynamic interval of a system.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 function SpartaSystemGetDynamicInterval(_system)
 {
     if (!__SpartaEnsureSystem(_system))

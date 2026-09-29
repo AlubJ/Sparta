@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will play the effect at the already defined coordinates.
+/// Play the effect at the already defined coordinates.
 ///
 /// @param {Struct.__SpartaClassEffectInstance} instance
 function SpartaEffectInstancePlay(_instance)

@@ -1,7 +1,8 @@
 // Feather disable all
 
 /// 
-/// Cleans up the entirety of Sparta and all cached memory. Be mindful when clearing.
+/// Cleans up the entirety of Sparta and all cached memory and dynamic resources including
+/// sprites, meshes and batch vertex buffers. Be mindful when clearing.
 /// 
 function SpartaCleanUp()
 {

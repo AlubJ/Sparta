@@ -1,9 +1,9 @@
 // Feather disable all
 
 ///
-/// Return back the current time of a system.
+/// Get the current time of a system.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 function SpartaSystemGetTime(_system)
 {
     if (!__SpartaEnsureSystem(_system))

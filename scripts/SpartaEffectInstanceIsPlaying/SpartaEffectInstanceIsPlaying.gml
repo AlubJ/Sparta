@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// Return whether an effect instance is playing.
+/// Get whether an effect instance is playing.
 ///
 /// @param {Struct.__SpartaClassEffectInstance} instance
 function SpartaEffectInstanceIsPlaying(_instance)

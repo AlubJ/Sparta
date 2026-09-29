@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Get the distribution from an emitter.
+/// Get the distribution of an emitter.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 function SpartaEmitterGetDistribution(_emitter)

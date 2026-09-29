@@ -3,7 +3,7 @@
 ///
 /// Get the draw calls of a system.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 function SpartaSystemGetDrawCalls(_system)
 {
     if (!__SpartaEnsureSystem(_system))

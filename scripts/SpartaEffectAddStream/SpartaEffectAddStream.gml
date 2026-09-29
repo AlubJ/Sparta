@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will add a stream instruction to your effect.
+/// Add a stream instruction to an effect.
 ///
 /// @param {Struct.__SpartaClassEffect} effect
 /// @param {Real} time

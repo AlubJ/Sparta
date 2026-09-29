@@ -1,17 +1,15 @@
 // Feather disable all
 
 ///
-/// Retiring an emitter will make it stop producing particles. Setting it to force
-/// will retire and immediately destroy the emitter.
+/// Retiring an emitter will make it stop producing particles.
 ///
-/// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-/// @param {Bool} force
-function SpartaEmitterRetire(_emitter, _force)
+/// @param {Struct.__SpartaClassEmitter} emitter
+function SpartaEmitterRetire(_emitter)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {
         __SpartaError($"Particle emitter passed in is invalid.");
     }
     
-    return _emitter.Retire(_force);
+    return _emitter.Retire(false);
 }

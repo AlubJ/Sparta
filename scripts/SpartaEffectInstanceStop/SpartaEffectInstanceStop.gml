@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// 
-/// This will stop a currently playing effect instance.
+/// Stop a currently playing effect instance.
 ///
 /// @param {Struct.__SpartaClassEffectInstance} instance
 function SpartaEffectInstanceStop(_instance)

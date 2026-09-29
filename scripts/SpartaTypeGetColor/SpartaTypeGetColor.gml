@@ -3,7 +3,7 @@
 ///
 /// Get the color of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetColor(_type)
 {
     if (!__SpartaEnsureType(_type))

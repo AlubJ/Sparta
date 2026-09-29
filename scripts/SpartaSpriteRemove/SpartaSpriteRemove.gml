@@ -3,7 +3,7 @@
 /// 
 /// Removes a texture from memory.
 /// 
-/// @param {Asset.Sprite} sprite The sprite
+/// @param {Asset.Sprite} sprite
 function SpartaSpriteRemove(_sprite)
 {
     static _system = __SpartaSystem();

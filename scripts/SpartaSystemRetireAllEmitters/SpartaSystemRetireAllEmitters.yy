@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaSystemRetireAllEmitters",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaSystemRetireAllEmitters",
+  "parent":{
+    "name":"System",
+    "path":"folders/Sparta/System.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

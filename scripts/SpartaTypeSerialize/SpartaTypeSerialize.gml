@@ -3,7 +3,7 @@
 ///
 /// Convert the type into a struct that can be read back later.
 ///
-/// @param {Struct.__SpartaClassType} type The type
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeSerialize(_type)
 {
     if (!__SpartaEnsureType(_type))

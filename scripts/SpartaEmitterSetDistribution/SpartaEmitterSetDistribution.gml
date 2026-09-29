@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Set the emitters emit distribution pattern.
+/// Set an emitters emit distribution pattern.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 /// @param {Id.SPARTA_DISTR_*} distribution

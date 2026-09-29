@@ -3,7 +3,7 @@
 ///
 /// Set the gravity of a particle type. The direction is a vector.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} xDirection
 /// @param {Real} yDirection
 /// @param {Real} zDirection

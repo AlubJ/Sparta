@@ -1,7 +1,7 @@
 // Feather disable all
 
 ///
-/// Return back whether an emitter is active.
+/// Get whether an emitter is active.
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter.
 function SpartaEmitterIsActive(_emitter)

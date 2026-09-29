@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSystemRetireAll",
+  "%Name":"SpartaSystemStopAllEffects",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSystemRetireAll",
+  "name":"SpartaSystemStopAllEffects",
   "parent":{
     "name":"System",
     "path":"folders/Sparta/System.yy",

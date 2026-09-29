@@ -4,7 +4,7 @@
 /// Set the sprite of a particle type. When speed is set to `-1`, the
 /// sprite will animate its image over the course of the particles life.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Asset.Sprite} sprite
 /// @param {Real} speed
 /// @param {Bool} randomize

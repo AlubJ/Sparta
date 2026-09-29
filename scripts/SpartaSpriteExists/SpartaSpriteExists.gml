@@ -3,7 +3,7 @@
 /// 
 /// Check whether a particle texture has been created for use in the particle system.
 /// 
-/// @param {Asset.Sprite} sprite The sprite
+/// @param {Asset.Sprite} sprite
 function SpartaSpriteExists(_sprite)
 {
     static _system = __SpartaSystem();

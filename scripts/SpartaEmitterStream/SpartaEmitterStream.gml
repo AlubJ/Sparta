@@ -4,10 +4,10 @@
 /// Stream particles over multiple frames. Setting the lifespan to `-1` will cause
 /// the emitter to not retire.
 ///
-/// @param {Struct.__SpartaClassEmitter} emitter The emitter.
-/// @param {Struct.__SpartaClassType} type The particle type to emit.
-/// @param {Real} particlesPerStep The amount of particles to emit per step.
-/// @param {Real} lifespan The life of the emitter before it retires.
+/// @param {Struct.__SpartaClassEmitter} emitter
+/// @param {Struct.__SpartaClassType} particleType
+/// @param {Real} particlesPerStep
+/// @param {Real} lifespan
 function SpartaEmitterStream(_emitter, _type, _particlesPerStep, _lifespan)
 {
     if (!__SpartaEnsureEmitter(_emitter))

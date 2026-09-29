@@ -3,7 +3,7 @@
 ///
 /// Get whether the direction of a particle type is radial.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetDirectionRadial(_type)
 {
     if (!__SpartaEnsureType(_type))

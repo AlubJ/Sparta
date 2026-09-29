@@ -1,9 +1,9 @@
 // Feather disable all
 
 ///
-/// This will set the system passed in to be paused or not paused.
+/// Set the system to be paused or not paused.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 /// @param {Bool} pause
 function SpartaSystemSetPause(_system, _pause)
 {

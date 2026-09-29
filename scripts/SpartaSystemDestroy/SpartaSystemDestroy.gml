@@ -3,7 +3,7 @@
 ///
 /// Clear and destroy a system.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 function SpartaSystemDestroy(_system)
 {
     if (!__SpartaEnsureSystem(_system))

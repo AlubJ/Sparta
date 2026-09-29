@@ -3,7 +3,7 @@
 ///
 /// Get the mesh light direction of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetMeshLightDirection(_type)
 {
     if (!__SpartaEnsureType(_type))

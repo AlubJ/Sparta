@@ -3,7 +3,7 @@
 ///
 /// Set the mesh texture of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Asset.Sprite} sprite
 function SpartaTypeSetMeshTexture(_type, _sprite)
 {

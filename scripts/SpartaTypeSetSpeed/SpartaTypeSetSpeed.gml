@@ -3,7 +3,7 @@
 ///
 /// Set the speed of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 /// @param {Real} minStartSpeed
 /// @param {Real} maxStartSpeed
 /// @param {Real} acceleration

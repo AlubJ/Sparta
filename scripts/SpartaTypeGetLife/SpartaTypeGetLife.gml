@@ -3,7 +3,7 @@
 ///
 /// Get the life of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetLife(_type)
 {
     if (!__SpartaEnsureType(_type))

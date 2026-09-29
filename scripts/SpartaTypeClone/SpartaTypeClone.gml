@@ -5,7 +5,7 @@
 /// the mesh vertex buffers, those will be the same reference. Destroying a cloned mesh type
 /// will destroy all references to that mesh.
 ///
-/// @param {Struct.__SpartaClassType} type The type
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeClone(_type)
 {
     if (!__SpartaEnsureType(_type))

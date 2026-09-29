@@ -2,9 +2,10 @@
 
 ///
 /// The dynamic interval is how often a new emitter is created when an emitter
-/// is dynamic. This defaults to `1`.
+/// is dynamic. Particles interpolate between the last and current emitter.
+/// This defaults to `1`.
 ///
-/// @param {Struct.__SpartaClassSystem} system The system.
+/// @param {Struct.__SpartaClassSystem} system
 /// @param {Real} interval
 function SpartaSystemSetDynamicInterval(_system, _interval)
 {

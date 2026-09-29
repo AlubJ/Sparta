@@ -3,7 +3,7 @@
 ///
 /// Get the type of a particle type.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetType(_type)
 {
     if (!__SpartaEnsureType(_type))

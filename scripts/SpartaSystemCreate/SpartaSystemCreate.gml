@@ -8,8 +8,8 @@
 /// the more varied they are will determine how many vertex submit calls
 /// will be executed for each emitter that is drawn.
 ///
-/// @param {Array.Real} batchSize An array of batch sizes.
-function SpartaSystemCreate(_batchSize)
+/// @param {Array.Real} batchSizeArray
+function SpartaSystemCreate(_batchSizeArray)
 {
-    return new __SpartaClassSystem(_batchSize);
+    return new __SpartaClassSystem(_batchSizeArray);
 }

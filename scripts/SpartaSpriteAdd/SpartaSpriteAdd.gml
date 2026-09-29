@@ -6,7 +6,7 @@
 /// has to be built into a GPU friendly version for drawing. This function
 /// allows you to add a sprite before a particle type needs that sprite.
 /// 
-/// @param {Asset.Sprite} sprite The sprite to use
+/// @param {Asset.Sprite} sprite
 function SpartaSpriteAdd(_sprite)
 {
     static _system = __SpartaSystem();

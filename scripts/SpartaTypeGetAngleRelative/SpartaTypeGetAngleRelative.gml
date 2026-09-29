@@ -3,7 +3,7 @@
 ///
 /// Get whether the angle of a particle type is relative.
 ///
-/// @param {Struct.__SpartaClassType} type The type.
+/// @param {Struct.__SpartaClassType} type
 function SpartaTypeGetAngleRelative(_type)
 {
     if (!__SpartaEnsureType(_type))
