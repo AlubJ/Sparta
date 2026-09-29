@@ -11,9 +11,10 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Demo","folderPath":"folders/Demo.yy","name":"Demo","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Basic Particles","folderPath":"folders/Demo/Demos/Basic Particles.yy","name":"Basic Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Controllers","folderPath":"folders/Demo/Controllers.yy","name":"Controllers","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Demos","folderPath":"folders/Demo/Demos.yy","name":"Demos","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Basic Particles","folderPath":"folders/Demo/Demos/Basic Particles.yy","name":"Basic Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Mesh Particles","folderPath":"folders/Demo/Demos/Mesh Particles.yy","name":"Mesh Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Demo/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Demo/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particles","folderPath":"folders/Demo/Sprites/Particles.yy","name":"Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -52,7 +53,9 @@
   "resources":[
     {"id":{"name":"ctrlDemo","path":"objects/ctrlDemo/ctrlDemo.yy",},},
     {"id":{"name":"objDemoBasicParticles","path":"objects/objDemoBasicParticles/objDemoBasicParticles.yy",},},
+    {"id":{"name":"objDemoMeshParticles","path":"objects/objDemoMeshParticles/objDemoMeshParticles.yy",},},
     {"id":{"name":"rmDemoBasicParticles","path":"rooms/rmDemoBasicParticles/rmDemoBasicParticles.yy",},},
+    {"id":{"name":"rmDemoMeshParticles","path":"rooms/rmDemoMeshParticles/rmDemoMeshParticles.yy",},},
     {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"id":{"name":"__SpartaBase64ToMesh","path":"scripts/__SpartaBase64ToMesh/__SpartaBase64ToMesh.yy",},},
     {"id":{"name":"__SpartaBatchCreate","path":"scripts/__SpartaBatchCreate/__SpartaBatchCreate.yy",},},
@@ -205,6 +208,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"roomId":{"name":"rmDemoBasicParticles","path":"rooms/rmDemoBasicParticles/rmDemoBasicParticles.yy",},},
+    {"roomId":{"name":"rmDemoMeshParticles","path":"rooms/rmDemoMeshParticles/rmDemoMeshParticles.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

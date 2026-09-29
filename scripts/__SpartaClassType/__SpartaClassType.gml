@@ -285,7 +285,7 @@ function __SpartaClassType() constructor
     
     static SetMesh = function(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255)
     {
-        return __SetMesh(__SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch));
+        return __SetMesh(__SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch), _meshCountPerBatch);
     }
     
     static SetMeshTexture = function(_sprite)

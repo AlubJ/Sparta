@@ -68,6 +68,10 @@ global.rooms = [
         id: rmDemoBasicParticles,
         desc: "Basic particles",
     },
+    {
+        id: rmDemoMeshParticles,
+        desc: "Mesh particles",
+    },
 ];
 
 // Rooms string
