@@ -9,7 +9,7 @@
 /// @param {Real} yAxis
 /// @param {Real} zAxis
 /// @param {Real} angle
-function SpartaTypeSetMeshLightDirection(_type, _xAxis, _yAxis, _zAxis, _angle)
+function SpartaTypeSetMeshRotationAxis(_type, _xAxis, _yAxis, _zAxis, _angle)
 {
     if (!__SpartaEnsureType(_type))
     {
