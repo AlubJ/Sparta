@@ -1,38 +1,3 @@
-/*
-	CalicoCamera (c) Alun Jones
-	-------------------------------------------------------------------------
-	Script:			CalicoCamera
-	Version:		v1.00
-	Created:		16/09/2025 by Alun Jones
-	Description:	CalicoEngine Camera
-	-------------------------------------------------------------------------
-	History:
-	 - Created 16/09/2025 by Alun Jones
-	
-	To Do:
-	
-	Information:
-		Initialise a new camera, includes a bunch of helper functions to do camera stuff.
-		
-		The camera axis is set up like so:
-		##########################################
-		####                                  ####
-		####  z-axis                          ####
-		####    ^                             ####
-		####    |                             ####
-		####    |   y-axis                    ####
-		####    |  /                          ####
-		####    | /                           ####
-		####    |/                            ####
-		####    +---------------->   x-axis   ####
-		####							      ####
-		##########################################
-		
-		The z-axis is the up axis.
-		The y-axis is the depth axis.
-		The x-axis is the left-right axis.
-*/
-
 function Camera() constructor
 {
 	// Create Camera
@@ -99,55 +64,6 @@ function Camera() constructor
 		camera_apply(__camera);
 	}
 	
-	/// @func stepFirstPersonDebug
-	static stepFirstPersonDebug = function()
-	{
-		window_mouse_set_locked(true);
-		if (keyboard_check(ord("A")))
-		{
-			position[0] += dsin(yaw - 90) * .2;
-			position[1] += dcos(yaw - 90) * .2;
-		}
-		
-		if (keyboard_check(ord("D")))
-		{
-			position[0] -= dsin(yaw - 90) * .2;
-			position[1] -= dcos(yaw - 90) * .2;
-		}
-		
-		if (keyboard_check(ord("W")))
-		{
-			position[0] += dcos(yaw - 90) * .2;
-			position[1] -= dsin(yaw - 90) * .2;
-		}
-		
-		if (keyboard_check(ord("S")))
-		{
-			position[0] -= dcos(yaw - 90) * .2;
-			position[1] += dsin(yaw - 90) * .2;
-		}
-			
-		if (keyboard_check(vk_space)) position[2] += .1;
-		if (keyboard_check(vk_lshift)) position[2] -= .1;
-			
-		yaw += window_mouse_get_delta_x() * 0.25;
-		pitch += window_mouse_get_delta_y() * 0.25;
-		yaw = wrap_value(yaw, 0, 359);
-		pitch = clamp(pitch, -89.9, 89.9);
-		
-		lookAtPosition[0] = position[0] + dcos(yaw - 90) * dcos(pitch);
-		lookAtPosition[1] = position[1] - dsin(yaw - 90) * dcos(pitch);
-		lookAtPosition[2] = position[2] - dsin(pitch);
-	}
-	
-	static stepFirst = function()
-	{
-		// Apply Positions
-		lookAtPosition[0] = position[0] + dcos(yaw) * dcos(pitch);
-		lookAtPosition[1] = position[1] - dsin(yaw) * dcos(pitch);
-		lookAtPosition[2] = position[2] - dsin(pitch);
-	}
-	
 	/// @func stepThird()
 	/// @desc Step the camera in third person.
 	static stepThird = function()
@@ -162,11 +78,11 @@ function Camera() constructor
 	/// @func stepEditorThird(bounds)
 	/// @desc Step the editors third person camera in defined bounds.
 	/// @arg {Array} bounds The bounds.
-	static stepEditorThird = function(_bounds)
+	static stepEditorThird = function()
 	{
 		var _cursorX = window_mouse_get_x();
 		var _cursorY = window_mouse_get_y();
-		if (_cursorX > _bounds[0] && _cursorX < _bounds[2] && _cursorY > _bounds[1] && _cursorY < _bounds[3])
+		if (_cursorX > 0 && _cursorX < window_get_width() && _cursorY > 0 && _cursorY < window_get_height())
 		{
 			if ((device_mouse_check_button_pressed(0, mb_left) || device_mouse_check_button_pressed(0, mb_right)) || device_mouse_check_button(0, mb_middle) && !__active)
 			{
@@ -279,50 +195,7 @@ function Camera() constructor
 	static setPitch = function(_pitch)
 	{
 		pitch = clamp(_pitch, -__pitchLock, __pitchLock);
-	}
-	
-	/// @func addYaw(yaw)
-	/// @desc Add the yaw of the camera.
-	/// @arg {Real} yaw
-	static addYaw = function(_yaw, _smooth = 0)
-	{
-		// Update raw yaw value
-		_yaw = clamp(_yaw, -18, 18);
-		__smoothYaw = wrap_value(__smoothYaw + _yaw, 0, 359);
-		
-		// Smooth it
-		if (_smooth > 0)
-		{
-			yaw = lerp_angle(yaw, __smoothYaw, _smooth);
-		}
-		else
-		{
-			yaw = __smoothYaw;
-		}
-		
-		// Wrap again
-		yaw = normalize_angle(yaw);
-	}
-	
-	/// @func addPitch(pitch)
-	/// @desc Add the pitch of the camera.
-	/// @arg {Real} pitch
-	static addPitch = function(_pitch, _smooth = 0)
-	{
-		// Update raw yaw value
-		_pitch = clamp(_pitch, -18, 18);
-		__smoothPitch = clamp(__smoothPitch + _pitch, -__pitchLock, __pitchLock);
-		
-		// Smooth it
-		if (_smooth > 0)
-		{
-			pitch = lerp_angle(pitch, __smoothPitch, _smooth);
-		}
-		else
-		{
-			pitch = __smoothPitch;
-		}
-	}
-	
+    }
+    
 	#endregion
 }

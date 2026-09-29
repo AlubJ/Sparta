@@ -11,6 +11,9 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Demo","folderPath":"folders/Demo.yy","name":"Demo","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Basic Particles","folderPath":"folders/Demo/Demos/Basic Particles.yy","name":"Basic Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Controllers","folderPath":"folders/Demo/Controllers.yy","name":"Controllers","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Demos","folderPath":"folders/Demo/Demos.yy","name":"Demos","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Demo/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Demo/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particles","folderPath":"folders/Demo/Sprites/Particles.yy","name":"Particles","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -47,8 +50,10 @@
   },
   "name":"Sparta",
   "resources":[
-    {"id":{"name":"objTest","path":"objects/objTest/objTest.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"ctrlDemo","path":"objects/ctrlDemo/ctrlDemo.yy",},},
+    {"id":{"name":"objDemoBasicParticles","path":"objects/objDemoBasicParticles/objDemoBasicParticles.yy",},},
+    {"id":{"name":"rmDemoBasicParticles","path":"rooms/rmDemoBasicParticles/rmDemoBasicParticles.yy",},},
+    {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"id":{"name":"__SpartaBase64ToMesh","path":"scripts/__SpartaBase64ToMesh/__SpartaBase64ToMesh.yy",},},
     {"id":{"name":"__SpartaBatchCreate","path":"scripts/__SpartaBatchCreate/__SpartaBatchCreate.yy",},},
     {"id":{"name":"__SpartaBatchGetIndex","path":"scripts/__SpartaBatchGetIndex/__SpartaBatchGetIndex.yy",},},
@@ -180,6 +185,7 @@
     {"id":{"name":"__MeshShader","path":"shaders/__MeshShader/__MeshShader.yy",},},
     {"id":{"name":"__PrimaryShader","path":"shaders/__PrimaryShader/__PrimaryShader.yy",},},
     {"id":{"name":"__SecondaryShader","path":"shaders/__SecondaryShader/__SecondaryShader.yy",},},
+    {"id":{"name":"shdWireframe","path":"shaders/shdWireframe/shdWireframe.yy",},},
     {"id":{"name":"__SpartaFallbackTexture","path":"sprites/__SpartaFallbackTexture/__SpartaFallbackTexture.yy",},},
     {"id":{"name":"sprCircle","path":"sprites/sprCircle/sprCircle.yy",},},
     {"id":{"name":"sprDirt","path":"sprites/sprDirt/sprDirt.yy",},},
@@ -197,7 +203,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
+    {"roomId":{"name":"rmDemoBasicParticles","path":"rooms/rmDemoBasicParticles/rmDemoBasicParticles.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
