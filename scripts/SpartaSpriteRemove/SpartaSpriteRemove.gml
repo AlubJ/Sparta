@@ -17,7 +17,7 @@ function SpartaSpriteRemove(_sprite)
         
         if (__sprites[$ _sprite] != undefined)
         {
-            sprite_delete(_sprite);
+            sprite_delete(__sprites[$ _sprite]);
             variable_struct_remove(__sprites, _sprite);
         }
     }

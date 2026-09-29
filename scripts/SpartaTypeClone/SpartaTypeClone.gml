@@ -1,8 +1,9 @@
 // Feather disable all
 
 ///
-/// Cloning a particle type will duplicate the entire type apart from the
-/// mesh vertex buffer and child particle types.
+/// Cloning a particle type will duplicate the type. It will not duplicate children types or
+/// the mesh vertex buffers, those will be the same reference. Destroying a cloned mesh type
+/// will destroy all references to that mesh.
 ///
 /// @param {Struct.__SpartaClassType} type The type
 function SpartaTypeClone(_type)
