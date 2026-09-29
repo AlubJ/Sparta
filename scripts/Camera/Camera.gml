@@ -148,7 +148,7 @@ function Camera() constructor
 	
 	/// @func addPosition(x, y, z)
 	/// @desc Add the raw position.
-	static setPosition = function(_x, _y, _z)
+	static addPosition = function(_x, _y, _z)
 	{
 		position[0] += _x;
 		position[1] += _y;

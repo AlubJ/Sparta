@@ -3,6 +3,9 @@ global.camera = new Camera();
 global.system = SpartaSystemGetGlobal();
 global.demo = "";
 
+// Set a decent dynamic interval
+SpartaSystemSetDynamicInterval(global.system, 0.25);
+
 // Mesh vertex format
 vertex_format_begin();
 vertex_format_add_position_3d();
@@ -51,6 +54,10 @@ DrawGrid = function()
     shader_reset();
 }
 
+// Cube wireframe
+global.cubeWireframe = CalicoBuildWireframeAABB();
+global.sphereWireframe = CalicoBuildWireframeSphere();
+
 // GPU settings
 gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
@@ -66,11 +73,18 @@ if (os_type == os_gxgames)
 global.rooms = [
     {
         id: rmDemoBasicParticles,
-        desc: "Basic particles",
+        title: "Basic particles",
+        desc: "",
     },
     {
         id: rmDemoMeshParticles,
-        desc: "Mesh particles",
+        title: "Mesh particles",
+        desc: "You can set particles to have a mesh attached, mesh building is expensive, especially on larger models. The maximum batch of a mesh is 255, meaning a lot of particles will have a performance hit.",
+    },
+    {
+        id: rmDemoDynamicEmitters,
+        title: "Dynamic emitters",
+        desc: "Dynamic emitters allow you to move an emitter around while properly retaining currently spawned emitters. The way this works is by creating a new emitter every-so-often, and because of this draw calls can massively spike and bring performance down. Though, changing the particle systems dynamic interval may help performance but you'll lose smoothness.",
     },
 ];
 
@@ -80,9 +94,11 @@ global.roomsString = "Use the numbers on your keyboard to change demo:\n";
 var _i = 0;
 repeat (array_length(global.rooms))
 {
-    global.roomsString += global.rooms[_i].desc + $": [{_i + 1}]\n";
+    global.roomsString += global.rooms[_i].title + $": [{_i + 1}]\n";
     _i++;
 }
 
+global.currentRoom = 0;
+
 // Goto demo room
-room_goto(rmDemoMeshParticles);
+room_goto(global.rooms[global.currentRoom].id);

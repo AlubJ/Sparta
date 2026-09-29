@@ -67,7 +67,7 @@ function __SpartaClassSystem(_batchSize) constructor
         var _emitterCount = array_length(__activeEmitters);
         
         var _i = _emitterCount;
-        repeat (--_i >= 0)
+        while (--_i >= 0)
         {
             var _emitter = __activeEmitters[_i];
             

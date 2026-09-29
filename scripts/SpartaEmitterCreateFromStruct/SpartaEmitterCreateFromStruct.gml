@@ -7,6 +7,6 @@
 /// @param {Struct} struct
 function SpartaEmitterCreateFromStruct(_system, _struct)
 {
-    var _emitter new __SpartaClassEmitter(_system);
+    var _emitter = new __SpartaClassEmitter(_system);
     return _emitter.Deserialize(_struct);
 }

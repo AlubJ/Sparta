@@ -5,7 +5,7 @@
 ///
 /// @param {Struct.__SpartaClassEmitter} emitter The emitter
 /// @param {Struct} struct
-function SpartaEmitterDesrialize(_emitter, _struct)
+function SpartaEmitterDeserialize(_emitter, _struct)
 {
     if (!__SpartaEnsureEmitter(_emitter))
     {

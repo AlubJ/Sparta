@@ -21,7 +21,6 @@ function __SpartaMeshInterface() constructor
         uParticleSpeed: shader_get_uniform(__shader, "uParticleSpeed"),
         uParticleLife: shader_get_uniform(__shader, "uParticleLife"),
         uParticleSize: shader_get_uniform(__shader, "uParticleSize"),
-        uParticleScale: shader_get_uniform(__shader, "uParticleScale"),
         uParticleSizeClamp: shader_get_uniform(__shader, "uParticleSizeClamp"),
         uParticleAngle: shader_get_uniform(__shader, "uParticleAngle"),
         uParticleGravity: shader_get_uniform(__shader, "uParticleGravity"),
@@ -67,7 +66,6 @@ function __SpartaMeshInterface() constructor
             shader_set_uniform_f_array(_uniforms.uParticleColor, __color);
             shader_set_uniform_f_array(_uniforms.uParticleSize, __size);
             shader_set_uniform_f_array(_uniforms.uParticleSizeClamp, __sizeClamp);
-            shader_set_uniform_f_array(_uniforms.uParticleScale, __scale);
             shader_set_uniform_f_array(_uniforms.uParticleSpeed, __speed);
             shader_set_uniform_f_array(_uniforms.uParticleDirection, __direction);
             shader_set_uniform_i(_uniforms.uParticleAngleRelative, __angleRelative);

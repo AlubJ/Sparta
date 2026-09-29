@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DrawWireframe",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DrawWireframe",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Demo/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

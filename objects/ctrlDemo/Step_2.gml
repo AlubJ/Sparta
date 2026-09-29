@@ -5,7 +5,8 @@ if (!global.docsDemo)
     {
         if (is_real(real(keyboard_lastchar)) && array_length(global.rooms) >= real(keyboard_lastchar))
         {
-            room_goto(global.rooms[real(keyboard_lastchar) - 1].id);
+            global.currentRoom = real(keyboard_lastchar) - 1;
+            room_goto(global.rooms[global.currentRoom].id);
         }
     }
 }

@@ -72,6 +72,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
                 __creationTime = __particleSystem.__time;
                 __startMatrix = __endMatrix;
                 __id = random(256 * 256);
+                __retired = false;
             }
         }
         else
@@ -438,6 +439,8 @@ function __SpartaClassEmitter(_particleSystem) constructor
         {
             __SpartaError($"Error deserializing emitter struct.");
         }
+        
+        return self;
     }
     
     #endregion

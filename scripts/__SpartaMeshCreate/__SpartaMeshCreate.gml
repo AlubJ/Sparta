@@ -113,22 +113,14 @@ function __SpartaMeshCreate(_meshBuffer, _vertexFormat, _meshCountPerBatch = 255
         var _xyNormal = floor(255 * point_direction(0, 0, _xNormal, _yNormal) / 360);
         var _zNormal = floor(255 * point_direction(0, 0, _zNormal, -point_direction(0, 0, _xNormal, _yNormal)) / 180);
         
-        var _j = 0;
-        repeat (_meshCountPerBatch)
-        {
-            buffer_seek(_instanceBuffer, buffer_seek_start, (_i + _j * _vertexCount) * 8);
-            
-            buffer_write(_instanceBuffer, buffer_u8, _xPosition);
-            buffer_write(_instanceBuffer, buffer_u8, _yPosition);
-            buffer_write(_instanceBuffer, buffer_u8, _zPosition);
-            buffer_write(_instanceBuffer, buffer_u8, _j);
-            buffer_write(_instanceBuffer, buffer_u8, _xUV);
-            buffer_write(_instanceBuffer, buffer_u8, _yUV);
-            buffer_write(_instanceBuffer, buffer_u8, _xyNormal);
-            buffer_write(_instanceBuffer, buffer_u8, _zNormal);
-            
-            _j++;
-        }
+        buffer_write(_instanceBuffer, buffer_u8, _xPosition);
+        buffer_write(_instanceBuffer, buffer_u8, _yPosition);
+        buffer_write(_instanceBuffer, buffer_u8, _zPosition);
+        buffer_write(_instanceBuffer, buffer_u8, 0);
+        buffer_write(_instanceBuffer, buffer_u8, _xUV);
+        buffer_write(_instanceBuffer, buffer_u8, _yUV);
+        buffer_write(_instanceBuffer, buffer_u8, _xyNormal);
+        buffer_write(_instanceBuffer, buffer_u8, _zNormal);
         
         _i++;
     }
