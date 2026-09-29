@@ -28,6 +28,9 @@ function __SpartaClassSystem(_batchSize) constructor
     __particleCount = 0;
     __drawCalls = 0;
     
+    __destroyed = false;
+    __isGlobal = false;
+    
     __UpdateVertexBuffers();
     
     static __UpdateVertexBuffers = function()
@@ -183,6 +186,31 @@ function __SpartaClassSystem(_batchSize) constructor
         {
             __activeEmitters[_i].Retire(_force);
         }
+    }
+    
+    static Clear = function()
+    {
+        var _i = array_length(__activeEmitters);
+        
+        while (--_i >= 0)
+        {
+            var _emitter = __activeEmitters[_i];
+            _emitter.__active = false;
+            _emitter.__activeIndex = -1;
+        }
+        
+        array_delete(__activeEmitters, 0, array_length(__activeEmitters));
+    }
+    
+    static Destroy = function()
+    {
+        if (__isGlobal)
+        {
+            __SpartaError("Cannot destroy the global particle system.");
+        }
+        
+        Clear();
+        __destroyed = true;
     }
     
     #region Getters / Setters

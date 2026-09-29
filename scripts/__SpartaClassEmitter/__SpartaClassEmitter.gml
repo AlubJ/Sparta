@@ -117,6 +117,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __particlesPerStep = _particlesPerStep;
         __lifeSpan = (_lifeSpan > 0 ? _lifeSpan : 9999999);
         __type = SPARTA_EMITTER_STREAM;
+        __deathTime = __ComputeDeathTime();
         
         __Activate();
     }
@@ -142,6 +143,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
         __creationTime = __particleSystem.__time;
         __particlesPerStep = SPARTA_MAX_BURST_COUNT;
         __lifeSpan = _count / __particlesPerStep;
+        __deathTime = __ComputeDeathTime();
         
         __Activate();
     }
@@ -149,6 +151,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static Mature = function()
     {
         __creationTime -= __particleType.__life[1];
+        __deathTime = __ComputeDeathTime();
         
         var _childType = __particleType.__childType;
         if (__SpartaEnsureType(_childType))
@@ -196,21 +199,9 @@ function __SpartaClassEmitter(_particleSystem) constructor
         _retired.__particlesPerStep = __particlesPerStep;
         _retired.__lifeSpan = min(__lifeSpan, __particleSystem.__time - __creationTime);
         _retired.__creationTime = __creationTime;
-        _retired.__deathTime = __creationTime + _retired.__lifeSpan + __particleType.__life[1];
+        _retired.__deathTime = _retired.__ComputeDeathTime();
         array_copy(_retired.__startMatrix, 0, __startMatrix, 0, 16);
 		array_copy(_retired.__endMatrix, 0, __endMatrix, 0, 16);
-        
-        var _childType = __particleType.__childType;
-        if (__SpartaEnsureType(_childType))
-        {
-            _retired.__deathTime += _childType.__life[1];
-        }
-        
-        var _deathType = __particleType.__deathType;
-        if (__SpartaEnsureType(_deathType))
-        {
-            _retired.__deathTime += _deathType.__life[1];
-        }
         
         var _index = array_get_index(__particleSystem.__activeEmitters, self);
         if (_index != -1)
@@ -367,6 +358,16 @@ function __SpartaClassEmitter(_particleSystem) constructor
         return __particleSystem.__time - __creationTime;
     }
     
+    static GetCreationTime = function()
+    {
+        return __creationTime;
+    }
+    
+    static GetDeathTime = function()
+    {
+        return __deathTime;
+    }
+    
     static IsActive = function()
     {
         return __active;
@@ -375,6 +376,16 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static IsRetired = function()
     {
         return __retired;
+    }
+    
+    static IsFinished = function()
+    {
+        if (__type == SPARTA_EMITTER_NONE)
+        {
+            return true;
+        }
+        
+        return __particleSystem.__time >= __deathTime;
     }
     
     #endregion
@@ -432,6 +443,30 @@ function __SpartaClassEmitter(_particleSystem) constructor
     static __SafeScale = function(_size)
     {
         return _size == 0 ? 0.0001 : _size;
+    }
+    
+    static __ComputeDeathTime = function()
+    {
+        if (!__SpartaEnsureType(__particleType))
+        {
+            return 0;
+        }
+        
+        var _time = __creationTime + __lifeSpan + __particleType.__life[1];
+        
+        var _childType = __particleType.__childType;
+        if (!__SpartaEnsureType(_childType))
+        {
+            _time += _childType.__life[1];
+        }
+        
+        var _deathType = __particleType.__deathType;
+        if (!__SpartaEnsureType(_deathType))
+        {
+            _time += _deathType.__life[1];
+        }
+        
+        return _time;
     }
     
     #endregion

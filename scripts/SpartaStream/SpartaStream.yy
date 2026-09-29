@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSpriteAdd",
+  "%Name":"SpartaStream",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSpriteAdd",
+  "name":"SpartaStream",
   "parent":{
     "name":"Other",
     "path":"folders/Sparta/Other.yy",

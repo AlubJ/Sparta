@@ -2,12 +2,5 @@
 
 function __SpartaEnsureSystem(_system)
 {
-    if (!is_instanceof(_system, __SpartaClassSystem))
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return is_instanceof(_system, __SpartaClassSystem) && !_system.__destroyed;
 }

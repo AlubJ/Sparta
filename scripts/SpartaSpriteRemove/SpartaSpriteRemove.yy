@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSpriteAdd",
+  "%Name":"SpartaSpriteRemove",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSpriteAdd",
+  "name":"SpartaSpriteRemove",
   "parent":{
     "name":"Other",
     "path":"folders/Sparta/Other.yy",

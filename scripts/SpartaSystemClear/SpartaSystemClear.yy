@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"SpartaSpriteAdd",
+  "%Name":"SpartaSystemClear",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SpartaSpriteAdd",
+  "name":"SpartaSystemClear",
   "parent":{
-    "name":"Other",
-    "path":"folders/Sparta/Other.yy",
+    "name":"System",
+    "path":"folders/Sparta/System.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

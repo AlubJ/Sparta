@@ -27,6 +27,7 @@ function __SpartaSystem()
         __meshInterface = new __SpartaMeshInterface();
         
         __particleSystem = new __SpartaClassSystem([256, 512, 1024, 2048, 4096, 8192]);
+        __particleSystem.__isGlobal = true;
         
         __SpartaTrace($"Welcome to Sparta by TheSnidr and modified by Alun Jones. This is version {SPARTA_VERSION} {SPARTA_DATE}");
     }
