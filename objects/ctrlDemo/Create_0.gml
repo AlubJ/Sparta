@@ -86,6 +86,11 @@ global.rooms = [
         title: "Dynamic emitters",
         desc: "Dynamic emitters allow you to move an emitter around while properly retaining currently spawned emitters. The way this works is by creating a new emitter every-so-often, and because of this draw calls can massively spike and bring performance down. Though, changing the particle systems dynamic interval may help performance but you'll lose smoothness.",
     },
+    {
+        id: rmDemoEffects,
+        title: "Effects",
+        desc: "Effects are a group of types with instructions on how to spawn them over the course of multiple particle system steps. These are a useful way to add reusable effects into your game.",
+    },
 ];
 
 // Rooms string

@@ -2,7 +2,7 @@
 
 var _stats = "";
 
-_stats += $"Estimated Particle Count: {global.system.GetParticleCount()} | Draw Calls: {global.system.GetDrawCalls()}\n";
+_stats += $"Estimated Particle Count: {global.system.GetParticleCount()} | Draw Calls: {global.system.GetDrawCalls()} | Particle System Time: {global.system.GetTime()}\n";
 
 draw_text(16, 16, _stats);
 

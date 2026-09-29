@@ -24,6 +24,7 @@ function __SpartaClassSystem(_batchSize) constructor
     __paused = false;
     
     __activeEmitters = [  ];
+    __activeEffects = [  ];
     
     __particleCount = 0;
     __drawCalls = 0;
@@ -79,6 +80,26 @@ function __SpartaClassSystem(_batchSize) constructor
             if (_emitter.__type == SPARTA_EMITTER_RETIRED && __time >= _emitter.__deathTime)
             {
                 _emitter.__Deactivate();
+            }
+        }
+        
+        var _i = array_length(__activeEffects);
+        while (--_i >= 0)
+        {
+            var _instance = __activeEffects[_i];
+            var _time = __time - _instance.__startTime;
+            var _instructions = _instance.__effect.__instructions;
+            var _instructionCount = array_length(_instructions);
+            
+            while (_instance.__cursor < _instructionCount && _instructions[_instance.__cursor].time <= _time)
+            {
+                __SpartaEffectFireInstruction(self, _instance, _instructions[_instance.__cursor]);
+                _instance.__cursor++;
+            }
+            
+            if (_instance.__cursor >= _instructionCount)
+            {
+                _instance.Stop();
             }
         }
         

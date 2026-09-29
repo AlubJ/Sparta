@@ -1,4 +1,4 @@
-/// @desc Create a basic particle system and stream them.
+/// @desc Create a basic particle system and stream them using a dyanmic emitter.
 // System
 particleSystem = global.system;
 

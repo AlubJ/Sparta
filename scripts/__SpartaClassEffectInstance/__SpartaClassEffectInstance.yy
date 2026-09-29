@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__SpartaClassEffectInstance",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__SpartaClassEffectInstance",
+  "parent":{
+    "name":"Classes",
+    "path":"folders/Sparta/(Backend)/Classes.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
