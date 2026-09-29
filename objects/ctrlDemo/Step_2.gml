@@ -3,9 +3,10 @@ if (!global.docsDemo)
 {
     if (keyboard_check_pressed(vk_anykey))
     {
-        if (is_real(real(keyboard_lastchar)) && array_length(global.rooms) >= real(keyboard_lastchar))
+        var _string = chr(keyboard_lastkey);
+        if (_string == keyboard_lastchar && array_length(global.rooms) >= real(_string))
         {
-            global.currentRoom = real(keyboard_lastchar) - 1;
+            global.currentRoom = real(_string) - 1;
             room_goto(global.rooms[global.currentRoom].id);
         }
     }
