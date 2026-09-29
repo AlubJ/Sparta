@@ -15,5 +15,5 @@ function SpartaEffectInstancePlayAt(_instance, _xPosition, _yPosition, _zPositio
         __SpartaError("Effect instance passed in is invalid.");
     }
     
-    _instance.PlayAt(_instance, _xPosition, _yPosition, _zPosition);
+    _instance.PlayAt(_xPosition, _yPosition, _zPosition);
 }

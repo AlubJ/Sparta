@@ -48,19 +48,7 @@ function __SpartaClassEffectInstance(_system, _effect) constructor
         __yPosition = _yPosition;
         __zPosition = _zPosition;
         
-        __cursor = 0;
-        __startTime = __particleSystem.__time;
-        
-        __effect.__Sort();
-        
-        if (!__active)
-        {
-            __active = true;
-            __activeIndex = array_length(__particleSystem.__activeEffects);
-            array_push(__particleSystem.__activeEffects, self);
-        }
-        
-        return self;
+        return Play();
     }
     
     static Stop = function()
@@ -75,12 +63,12 @@ function __SpartaClassEffectInstance(_system, _effect) constructor
         
         if (_last != self)
         {
-            _list[__activeIndex] = _last;
+            _effects[__activeIndex] = _last;
             _last.__activeIndex = __activeIndex;
         }
         
         __active = false;
-        __activeIndex = false;
+        __activeIndex = -1;
     }
     
     static SetPosition = function(_xPosition, _yPosition, _zPosition)

@@ -11,5 +11,5 @@ function SpartaEffectSerialize(_effect)
         __SpartaError("Effect passed in is invalid.");
     }
     
-    _effect.Serialize();
+    return _effect.Serialize();
 }

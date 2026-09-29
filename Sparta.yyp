@@ -101,7 +101,6 @@
     {"id":{"name":"SpartaCleanUp","path":"scripts/SpartaCleanUp/SpartaCleanUp.yy",},},
     {"id":{"name":"SpartaEffectAddBurst","path":"scripts/SpartaEffectAddBurst/SpartaEffectAddBurst.yy",},},
     {"id":{"name":"SpartaEffectAddStream","path":"scripts/SpartaEffectAddStream/SpartaEffectAddStream.yy",},},
-    {"id":{"name":"SpartaEffectAddType","path":"scripts/SpartaEffectAddType/SpartaEffectAddType.yy",},},
     {"id":{"name":"SpartaEffectCreate","path":"scripts/SpartaEffectCreate/SpartaEffectCreate.yy",},},
     {"id":{"name":"SpartaEffectCreateFromStruct","path":"scripts/SpartaEffectCreateFromStruct/SpartaEffectCreateFromStruct.yy",},},
     {"id":{"name":"SpartaEffectDeserialize","path":"scripts/SpartaEffectDeserialize/SpartaEffectDeserialize.yy",},},
