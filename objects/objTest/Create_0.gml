@@ -37,10 +37,10 @@ var _buffer = buffer_load("gm.vbx");
 //part.SetMeshRotationAxis(1, 0, 0, 0);
 
 emitter = new __SpartaClassEmitter(SpartaSystemGetGlobal());
-emitter.SetRegion(0, 0, 0, 0, 0, 0, 10, 10, 1);
+emitter.SetRegion(0, 0, 0, 0, 0, 0, 1, 1, 1);
 emitter.SetDynamic(true);
 emitter.SetShape(SPARTA_SHAPE_CUBE);
-emitter.Stream(part, 1, -1);
+emitter.Stream(part, 100, -1);
 
 vertex_format_begin();
 vertex_format_add_position_3d();

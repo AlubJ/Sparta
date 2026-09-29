@@ -67,7 +67,7 @@ function __SpartaClassEmitter(_particleSystem) constructor
     {
         if (__dynamic)
         {
-            if (Retire(true))
+            if (Retire())
             {
                 __creationTime = __particleSystem.__time;
                 __startMatrix = __endMatrix;
@@ -203,10 +203,14 @@ function __SpartaClassEmitter(_particleSystem) constructor
         array_copy(_retired.__startMatrix, 0, __startMatrix, 0, 16);
 		array_copy(_retired.__endMatrix, 0, __endMatrix, 0, 16);
         
-        var _index = array_get_index(__particleSystem.__activeEmitters, self);
-        if (_index != -1)
+        if (__active)
         {
-            __particleSystem.__activeEmitters[_index] = _retired;
+            __particleSystem.__activeEmitters[__activeIndex] = _retired;
+            _retired.__active = true;
+            _retired.__activeIndex = __activeIndex;
+            
+            __active = false;
+            __activeIndex = -1;
         }
         
         __retired = true;
