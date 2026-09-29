@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__SpartaGetBatchIndex",
+  "%Name":"__SpartaMeshBatchCreate",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__SpartaGetBatchIndex",
+  "name":"__SpartaMeshBatchCreate",
   "parent":{
     "name":"Supplementary",
     "path":"folders/Sparta/(Backend)/Supplementary.yy",

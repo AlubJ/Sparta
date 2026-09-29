@@ -1,6 +1,6 @@
 // Feather disable all
 
-function __SpartaGetBatchIndex(_particleSystem, _particleCount)
+function __SpartaBatchGetIndex(_particleSystem, _particleCount)
 {
     var _indexCount = array_length(_particleSystem.__batchSize);
     var _index = 0;

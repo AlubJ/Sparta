@@ -113,7 +113,7 @@ function __SpartaSecondaryInterface() constructor
         var _uniforms = __uniforms;
         var _texture = sprite_get_texture(_type.__sprite != undefined ? _type.__sprite : __SpartaFallbackTexture, 0);
         
-        var _batchIndex = __SpartaGetBatchIndex(_particleSystem, _particleCount);
+        var _batchIndex = __SpartaBatchGetIndex(_particleSystem, _particleCount);
         var _vertexBuffer = _particleSystem.__vertexBatches[_batchIndex];
         var _batchSize = _particleSystem.__batchSize[_batchIndex];
         var _batchCount = ceil(_particleCount / _batchSize);
