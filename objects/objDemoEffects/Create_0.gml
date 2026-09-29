@@ -19,7 +19,6 @@ SpartaTypeSetSpeed(particleType, 2, 4, -0.1, 0);
 
 // Create the effect
 particleEffect = new __SpartaClassEffect();
-particleEffect.AddType(particleType);
 particleEffect.AddBurst(0, particleType, 500, 0, 0, 0);
 particleEffect.AddBurst(1, particleType, 200, 5, 5, 5);
 particleEffect.AddBurst(2, particleType, 100, -5, 0, 5);

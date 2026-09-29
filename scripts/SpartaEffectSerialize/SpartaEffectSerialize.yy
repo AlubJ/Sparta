@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SpartaEffectSerialize",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SpartaEffectSerialize",
+  "parent":{
+    "name":"Effect",
+    "path":"folders/Sparta/Effect.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
