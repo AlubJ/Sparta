@@ -31,3 +31,8 @@ SpartaEffectAddBurst(particleEffect, 8, particleType, 50, -5, 0, -5);
 
 // Play the effect
 particleEffectInstance = SpartaEffectPlay(particleSystem, particleEffect, 0, 0, 0);
+
+// Set camera
+global.camera.setPitch(-25);
+global.camera.setYaw(45);
+global.camera.setLookPosition(0, 0, 1);
