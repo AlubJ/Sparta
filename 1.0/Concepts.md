@@ -28,6 +28,15 @@ This time based model is also why moving an emitter isn't as simple as changing 
 
 To avoid this, a dynamic emitter doesn't move in place. Instead, moving it retires the emitter's current segment, freezing its old transform into a copy that keeps aging out its already spawned particles exactly where they were, while the original emitter continues streaming fresh particles from the new position. This retirement is throttled by the system's `dynamicInterval`, so a fast moving emitter doesn't retire a new segment every single frame, instead, particles spawned within one interval interpolate smoothly between the segment's start and end position.
 
+## Ownership
+Most things you create in this library fall into one of two categories:
+
+- **References** - a system, a type, an emitter you keep in a variable, an effect, an effect instance you plan to replay. You're responsible for calling the matching `Destroy` when you're done with it (`SpartaSystemDestroy`, `SpartaTypeDestroy`, `SpartaEffectDestroy`, etc.).
+- **Fire-and-forget** - `SpartaBurst`, a bounded (finite life span) `SpartaStream`, and `SpartaEffectPlay`. These create their own internal emitters, and once they've finished playing out, they clean themselves up automatically, you never get a reference back, and you never need to destroy anything. This only works because the thing playing has a defined end, an unbounded stream (an infinite life span) will never finish on its own, so it isn't something you should fire-and-forget, hold a reference and retire it yourself when it should stop.
+
+### Destroying Things
+Calling `Destroy` on something marks the struct itself as destroyed, and removes any memory (aside from sprites and billboard batches) that was referenced. If you try to use a destroyed system, type, or effect after destroying it (streaming from it, adding an instruction to it, playing it), you'll get an error.
+
 ## Functions
 All examples in these docs are going to be formatted using the function based API. There is a method based API for all classes which you can use and chain if you please.
 
