@@ -13,6 +13,7 @@ particleSystem = SpartaSystemCreate(_batchSizes);
 You'll notice here that we've passed in `_batchSizes` into the function. This tells the particle system how to batch together particles. The goal is to use as little draw calls as possible, so the more diverse your batch sizes, the better your performance will be for large particle effects.
 
 Alternatively, you can use the global system.
+
 ```gml
 /// Create event
 particleSystem = SpartaSystemGetGlobal();
@@ -47,7 +48,7 @@ SpartaTypeSetLife(particleType, 2, 5);
 SpartaTypeSetGravity(particleType, 0, 0, -1, 1);
 ```
 
-There are a lot more properties that can be set, please take a look at the API reference for everything that can be set.
+?> There are a lot more properties that can be set, please take a look at the API reference for everything that can be set.
 
 ## Stepping the Particle System
 We need to step our particle system for any particles to be able to spawn. In your step event you'll want:
@@ -57,7 +58,7 @@ We need to step our particle system for any particles to be able to spawn. In yo
 SpartaSystemStep(particleSystem, 1 / game_get_speed(gamespeed_fps));
 ```
 
-The time increment can be whatever value but generally `1` full timestep should be mapped to `1` real-world second.
+?> The time increment can be whatever value but generally `1` full timestep should be mapped to `1` real-world second.
 
 ## Drawing the Particle System
 Next, we need to draw the particle system. You should draw it after your camera has already been applied.
@@ -75,6 +76,6 @@ There are multiple ways you can emit particles. There are two types of emitting,
 SpartaEmitterStream(particleEmitter, particleType, 10, -1);
 ```
 
-Setting the lifespan to `-1` will cause the emitter to continuously stream particles out.
+?> Setting the lifespan to `-1` will cause the emitter to continuously stream particles out.
 
-[demo](assets/demo0/index.html ':include width=100% frameBorder=0')
+[demo](assets/demo/index.html?--demo&0 ':include width=100% frameBorder=0')

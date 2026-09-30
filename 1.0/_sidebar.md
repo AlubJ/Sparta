@@ -6,6 +6,8 @@
 **Getting Started**
 - [Importing Sparta](Importing)
 - [Creating Particles](CreatingParticles)
+- [Mesh Particles](MeshParticles)
+- [Effects](Effects.md)
 
 ---
 
