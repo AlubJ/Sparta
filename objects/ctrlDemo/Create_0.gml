@@ -3,6 +3,10 @@ global.camera = new Camera();
 global.system = SpartaSystemGetGlobal();
 global.demo = "";
 
+// Setup command parameters
+ArgparRegister("demo", [  ], [ ty_real ], [ 0 ]);
+ArgparParse();
+
 // Set a decent dynamic interval
 SpartaSystemSetDynamicInterval(global.system, 0.25);
 
@@ -103,7 +107,7 @@ repeat (array_length(global.rooms))
     _i++;
 }
 
-global.currentRoom = 0;
+global.currentRoom = clamp(ArgparGet("demo"), 0, array_length(global.rooms) - 1);
 
 // Goto demo room
 room_goto(global.rooms[global.currentRoom].id);
