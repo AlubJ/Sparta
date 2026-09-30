@@ -31,7 +31,7 @@ To avoid this, a dynamic emitter doesn't move in place. Instead, moving it retir
 ## Ownership
 Most things you create in this library fall into one of two categories:
 
-- **References** - a system, a type, an emitter you keep in a variable, an effect, an effect instance you plan to replay. You're responsible for calling the matching `Destroy` when you're done with it (`SpartaSystemDestroy`, `SpartaTypeDestroy`, `SpartaEffectDestroy`, etc.).
+- **References** - a system, a type or an emitter you stor in a variable, an effect or an effect instance you plan to replay. You're responsible for calling the matching `Destroy` when you're done with it (`SpartaSystemDestroy`, `SpartaTypeDestroy`, `SpartaEffectDestroy`, etc.).
 - **Fire-and-forget** - `SpartaBurst`, a bounded (finite life span) `SpartaStream`, and `SpartaEffectPlay`. These create their own internal emitters, and once they've finished playing out, they clean themselves up automatically, you never get a reference back, and you never need to destroy anything. This only works because the thing playing has a defined end, an unbounded stream (an infinite life span) will never finish on its own, so it isn't something you should fire-and-forget, hold a reference and retire it yourself when it should stop.
 
 ### Destroying Things
