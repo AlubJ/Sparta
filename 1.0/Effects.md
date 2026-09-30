@@ -16,7 +16,7 @@ SpartaEffectAddBurst(particleEffect, 0, particleType, 500, 0, 0, 0);
 ```
 
 ## Playing an Effect
-There are a couple of ways to play an effect. You need to create a new effect instance using `SpartaEffectInstanceCreate()` and play using that instance. Alternatively, you can do a single play which is a fire-and-forget call using `SpartaEffectPlay()`.
+There are a couple of ways to play an effect. You need to create a new effect instance using `SpartaEffectInstanceCreate()` and play using that instance. Alternatively, you can do a single play which is a fire-and-forget call using `SpartaEffectPlay()` meaning you don't have to store an effect instance. These will clean-up on their own.
 
 ```gml
 particleEffectInstance = SpartaEffectInstanceCreate(particleSystem, particleEffect);
@@ -33,11 +33,7 @@ SpartaEffectAddBurst(particleEffect, 0, particleType, 500, 0, 0, 0);
 SpartaEffectAddBurst(particleEffect, 1, particleType, 200, 5, 5, 5);
 SpartaEffectAddBurst(particleEffect, 2, particleType, 100, -5, 0, 5);
 SpartaEffectAddBurst(particleEffect, 3, particleType, 50, -5, 0, -5);
-SpartaEffectAddBurst(particleEffect, 4, particleType, 50, -5, 0, -5);
-SpartaEffectAddBurst(particleEffect, 5, particleType, 50, -5, 0, -5);
-SpartaEffectAddBurst(particleEffect, 6, particleType, 50, -5, 0, -5);
-SpartaEffectAddBurst(particleEffect, 7, particleType, 50, -5, 0, -5);
-SpartaEffectAddBurst(particleEffect, 8, particleType, 50, -5, 0, -5);
+SpartaEffectAddStream(particleEffect, 4, particleType, 10, 4, -5, 0, -5);
 
 // Play the effect
 particleEffectInstance = SpartaEffectPlay(particleSystem, particleEffect, 0, 0, 0);

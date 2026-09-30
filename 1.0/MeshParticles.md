@@ -36,7 +36,7 @@ var _meshBuffer = buffer_create_from_vertex_buffer(_vertexBuffer, buffer_fixed, 
 ## Setting a Mesh
 We then need to set our mesh to the particle type. We can use the same particle type from the previous guide, but instead of setting the sprite we set the mesh and texture instead. We will also want a batch size for the mesh, which can range from `1` to `255`.
 
-!> It is important to note that `SpartaTypeSetSprite()` and `SpartaTypeSetTexture()` are different functions. You must only use `SpartaTypeSetSprite()` when you want billboard particles as this function will free the mesh buffer that is created. If you want a texture on your mesh particle, use `SpartaTypeSetTexture()`.
+!> It is important to note that `SpartaTypeSetSprite()` and `SpartaTypeSetMeshTexture()` are different functions. You must only use `SpartaTypeSetSprite()` when you want billboard particles as this function will free the mesh buffer that is created. If you want a texture on your mesh particle, use `SpartaTypeSetMeshTexture()`.
 !> Remember to call `SpartaTypeDestroy()` to clean up memory when you're done with your mesh particle.
 
 ```gml
