@@ -2,7 +2,7 @@
 Typically, particles are flat billboards and do not offer any sort of depth. These are great for performance but there may be times you want mesh based particles. Sparta offers this. All we have to do is create a particle type with a mesh.
 
 ## Vertex Format
-Before createing a mesh particle, you'll need a valid vertex format to create the mesh from. The order of the vertex format doesn't matter but you will need these properties and associated types in the format.
+Before creating a mesh particle, you'll need a valid vertex format to create the mesh from. The order of the vertex format doesn't matter but you will need these properties and associated types in the format.
 
 | Usage | Type |
 | --- | ---  |
@@ -61,7 +61,7 @@ SpartaTypeSetColor(particleType, c_green, 0, c_yellow, 1, c_blue, 1, c_red, 0, f
 SpartaTypeSetZWrite(particleType, true);
 SpartaTypeSetCullMode(particleType, cull_counterclockwise);
 
-// Set the behaviorial properties
+// Set the behavioral properties
 SpartaTypeSetLife(particleType, 2, 5);
 SpartaTypeSetDirection(particleType, 0, 0, 1, 10, false);
 SpartaTypeSetGravity(particleType, 0, 0, -1, 1);

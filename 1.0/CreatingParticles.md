@@ -43,7 +43,7 @@ SpartaTypeSetSprite(particleType, sprParticle, 0, false);
 SpartaTypeSetSize(particleType, 1, 2, 0, 0, 1, 2);
 SpartaTypeSetColor(particleType, c_green, 0, c_yellow, 1, c_blue, 1, c_red, 0, false);
 
-// Set the behaviorial properties
+// Set the behavioral properties
 SpartaTypeSetLife(particleType, 2, 5);
 SpartaTypeSetGravity(particleType, 0, 0, -1, 1);
 ```
@@ -69,7 +69,7 @@ SpartaSystemDraw(particleSystem);
 ```
 
 ## Emitting Particles
-There are multiple ways you can emit particles. There are two types of emitting, streaming and bursting. Streaming will emit a constant stream of particles for as long as you set the emitter to stream. Bursting will let out one big burst of particles all at once. We'll just stream them here.
+There are two types of emitting, streaming and bursting. Streaming will emit a constant stream of particles for as long as you set the emitter to stream. Bursting will let out one big burst of particles all at once. We'll just stream them here.
 
 ```gml
 /// Create event

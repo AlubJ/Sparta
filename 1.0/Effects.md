@@ -35,7 +35,7 @@ SpartaEffectAddBurst(particleEffect, 2, particleType, 100, -5, 0, 5);
 SpartaEffectAddBurst(particleEffect, 3, particleType, 50, -5, 0, -5);
 SpartaEffectAddStream(particleEffect, 4, particleType, 10, 4, -5, 0, -5);
 
-// Play the effect
+// Play the effect (this function will return back an effect instance, but you don't need to store it and will clean itself up.)
 particleEffectInstance = SpartaEffectPlay(particleSystem, particleEffect, 0, 0, 0);
 ```
 
