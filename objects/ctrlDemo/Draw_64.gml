@@ -1,5 +1,10 @@
 /// @desc Draw debugging stats
 
+if (room == rmWelcome && os_type == os_gxgames)
+{
+    exit;
+}
+
 var _stats = "";
 
 _stats += $"Estimated Particle Count: {global.system.GetParticleCount()} | Draw Calls: {global.system.GetDrawCalls()} | Particle System Time: {global.system.GetTime()}\n";
@@ -9,7 +14,7 @@ draw_text(16, 16, _stats);
 draw_set_valign(fa_bottom);
 draw_text(16, room_height - 16, "Controls:\nMouse down and drag: Orbit camera\nMouse wheel: Zoom in/out");
 draw_set_halign(fa_right);
-draw_text_ext(room_width - 16, room_height - 16, $"{global.rooms[global.currentRoom].desc}\nFPS: {fps}", string_height("|"), 500);
+draw_text_ext(room_width - 16, room_height - 16, $"{room == rmWelcome ? global.welcomeText : global.rooms[global.currentRoom].desc}\nFPS: {fps}", string_height("|"), 500);
 draw_set_valign(fa_top);
 
 if (!global.docsDemo)

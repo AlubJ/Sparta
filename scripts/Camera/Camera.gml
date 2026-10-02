@@ -50,7 +50,7 @@ function Camera() constructor
 	static submit = function(_clear = false)
 	{
 		// Draw Clear Alpha
-		draw_clear_alpha(c_black, _clear ? 0 : 1);
+		draw_clear_alpha((room == rmWelcome && os_type == os_gxgames) ? #293338 : c_black, _clear ? 0 : 1);
 		
 		// Build View and Projection Matrices
 		__viewMatrix = matrix_build_lookat(position[0], position[1], position[2], lookAtPosition[0], lookAtPosition[1], lookAtPosition[2], __upVector[0], __upVector[1], __upVector[2]);

@@ -1,4 +1,7 @@
 /// @desc Submit the camera
 global.camera.submit();
 
-DrawGrid();
+if (room != rmWelcome)
+{
+    DrawGrid();
+}

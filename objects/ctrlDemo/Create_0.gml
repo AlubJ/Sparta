@@ -4,7 +4,8 @@ global.system = SpartaSystemGetGlobal();
 global.demo = "";
 
 // Setup command parameters
-ArgparRegister("demo", [  ], [ ty_real ], [ 0 ]);
+ArgparRegister("demo", [  ], [ ty_real ], [ -1 ]);
+ArgparRegister("welcome", [  ], [  ], [ true ]);
 ArgparParse();
 
 // Set a decent dynamic interval
@@ -62,6 +63,11 @@ DrawGrid = function()
 global.cubeWireframe = CalicoBuildWireframeAABB();
 global.sphereWireframe = CalicoBuildWireframeSphere();
 
+// Load GameMaker model
+var _buffer = buffer_load("gm.vbx");
+global.gamemakerLogo = vertex_create_buffer_from_buffer(_buffer, global.meshVertexFormat);
+buffer_delete(_buffer);
+
 // GPU settings
 gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
@@ -97,6 +103,8 @@ global.rooms = [
     },
 ];
 
+global.welcomeText = "Welcome to Sparta, a shader driven 3D particle system for GameMaker.";
+
 // Rooms string
 global.roomsString = "Use the numbers on your keyboard to change demo:\n";
 
@@ -107,7 +115,8 @@ repeat (array_length(global.rooms))
     _i++;
 }
 
-global.currentRoom = clamp(ArgparGet("demo"), 0, array_length(global.rooms) - 1);
+var _demo = ArgparGet("demo");
+global.currentRoom = clamp(_demo, 0, array_length(global.rooms) - 1);
 
 // Goto demo room
-room_goto(global.rooms[global.currentRoom].id);
+room_goto(_demo != -1 ? global.rooms[global.currentRoom].id : rmWelcome);
